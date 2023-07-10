@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-function NavBar() {
+function Navbar() {
   return (
-    <div>NavBar</div>
-  )
+    <nav className='Navbar'>
+      <div className="Nav-logo">
+        {/* Logo */}
+      </div>
+      <ul className="Nav-button">
+        <li><button>Log out</button></li>
+      </ul>
+    </nav>
+  );
 }
 
-export default NavBar
+export default Navbar;
