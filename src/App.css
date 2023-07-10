@@ -1,6 +1,17 @@
-.Navbar {
-
-
-  
+* {
+  background-color: black;
 }
 
+
+.Navbar {
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+
+.Nav-logo {
+
+}
+
+.Nav-logoout {
+
+}
