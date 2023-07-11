@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Navbar from './NavBar';
 
 function CreatePoll({ onPollCreated }) {
   const [isOpen, setIsOpen] = useState(false);
