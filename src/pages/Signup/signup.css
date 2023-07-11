@@ -1,16 +1,17 @@
 /* Styles for Signup component */
 .sign-up {
-    text-align: center;
-    margin-top: 50px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(238 231 180 / 23%);
   }
   
-  .sign-up img {
-    width: auto;
-    height: auto;
-    margin-bottom: 10px;
-    margin-top: -20px;
-  }
-  
+
   .sign-up form {
     display: flex;
     flex-direction: column;
@@ -18,36 +19,42 @@
     margin-bottom: 20px;
   }
   
-  .sign-up label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
+  .sign-up input {
+    line-height: 28px;
+   border: 2px solid transparent;
+   border-bottom-color: #8fa0a0;
+   padding: .2rem 0;
+   outline: none;
+   background-color: transparent;
+   color: #28272c;
+   transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
   
-  .sign-up label input {
-    width: 300px;
-    height: 40px;
-    margin-top: 0px;
-    padding: 5px;
-    font-size: 1em;
-    color: #fff;
-  }
+     .sign-up input::placeholder {
+      color: #777;
+     }
+     
+     .sign-up input:focus::placeholder {
+      opacity: 0;
+      transition: opacity .3s;
+     }
+     
   
-  .sign-up button {
-    width: 200px;
-    height: 40px;
-    background-color: #2edf3a;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .sign-up button:hover {
-    background-color: #1f8d2d;
-  }
+     .sign-up button {
+      width: 103px;
+      height: 40px;
+      background-color: #70ada7;
+      color: #fff;
+      border: none;
+      border-radius: 5em;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .sign-up  button:hover {
+      background-color: #147b71;
+    }
   
   .redirect a {
     color: white;
@@ -59,15 +66,15 @@
   }
   
   .goTo {
-    color: white; /* Set the font color */
-    font-size: 14px; /* Increase the font size */
-    background: rgba(0, 0, 0, 0.5); /* black background with 60% opacity */
+    color: rgb(19 13 13);
+    font-size: 12px; /* Increase the font size */
+    /* background: rgba(193, 160, 160, 0.5); black background with 60% opacity */
     padding: 5px;
      /* Add padding for better visibility */
     
   }
   .link{
-    color:#2edf3a;
+    color:#0b8d1f;
     font-weight: bold;
   }
   

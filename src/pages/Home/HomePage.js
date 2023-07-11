@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import CreatePoll from './CreatePoll'; // Assuming the file path is correct
+import CreatePoll from '../../components/CreatePoll';
+
 
 function HomePage() {
   const [polls, setPolls] = useState([]);
@@ -26,6 +27,7 @@ function HomePage() {
 
   return (
     <div>
+      
       {/* <CreatePoll onPollCreated={handlePollCreated} /> */}
 
       {/* Render the polls */}
