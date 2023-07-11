@@ -3,6 +3,7 @@ import axios from "axios";
 import "./loginpage.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import logo from '../../assets/logo.png';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -43,6 +44,7 @@ function LoginPage() {
 
   return (
     <div className="sign-in">
+         <img src={logo} alt="logo" />
       <form onSubmit={handleSubmit}>
         <label>
           <input

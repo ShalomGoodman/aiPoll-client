@@ -1,8 +1,16 @@
 /* LoginPage.css */
 
-.sign-in {
+  .sign-in {
     text-align: center;
-    margin-top: 50px;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(238 231 180 / 23%);
+    /* Add any other background styles you want */
   }
   
   .sign-in img {
@@ -24,46 +32,76 @@
     flex-direction: column;
     margin-bottom: 10px;
   }
-  
-  .sign-in label input {
-    width: 300px;
-    height: 40px;
-    margin-top: 0px;
-    padding: 5px;
-    font-size: 1em;
-    color: #fff;
+
+  .sign-in input {
+  line-height: 28px;
+ border: 2px solid transparent;
+ border-bottom-color: #8fa0a0;
+ padding: .2rem 0;
+ outline: none;
+ background-color: transparent;
+ color: #28272c;
+ transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
+
+   .sign-in input::placeholder {
+    color: #777;
+   }
+   
+   .sign-in input:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+   }
+   
   
   .sign-in button {
-    width: 200px;
+    width: 103px;
     height: 40px;
-    background-color: #2edf3a;
+    background-color: #70ada7;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 5em;
     font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
   .sign-in button:hover {
-    background-color: #1f8d2d;
+    background-color: #147b71;
   }
   
-  .goTo {
+ .sign-in .goTo {
     color: white;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 2px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
-  .link {
+  .sign-in .link {
     color: blue;
     text-decoration: none;
   }
   
-  .redirect {
+  .sign-in .redirect {
     color: white;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .sign-in .goTo {
+    color: rgb(19 13 13);
+    font-size: 12px;
+    padding: 5px;
+  }
+    /* background: rgba(193, 160, 160, 0.5); black background with 60% opacity */
+     /* Add padding for better visibility */
+    
+  .sign-in .link{
+    color:#0b8d1f;
+    font-weight: bold;
+  }
+  
+  
+  .sign-in .redirect a:hover {
+  text-decoration: underline;
   }
