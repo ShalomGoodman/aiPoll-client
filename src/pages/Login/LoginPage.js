@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from '../../assets/logo.png';
 
-
 function LoginPage() {
   const navigate = useNavigate();
 
@@ -36,7 +35,6 @@ function LoginPage() {
         setPassword("");
         localStorage.setItem("isLoggedIn", true);
         localStorage.setItem("token", response.data.token); // Save the token in local storage
-        const logged = localStorage.getItem("isLoggedIn");
         navigate("/home");
       }
     } catch (error) {

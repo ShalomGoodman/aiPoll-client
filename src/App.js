@@ -23,6 +23,7 @@ function App() {
           {showModal && <Modal />}
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path='/home' element={<HomePage/>} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/poll/:id" element={<PollPage />} />

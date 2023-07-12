@@ -1,33 +1,49 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
-import { AuthContext } from '../auth/AuthContextComponent'; // check if this path is correct
 
 const NavBar = ({ onModalToggle }) => {
   const navigate = useNavigate();
-  const { logout } = useContext(AuthContext);
 
   const handleLogout = () => {
-    logout();
+    localStorage.setItem("isLoggedIn", false); // set isLoggedIn to false
+    localStorage.removeItem("token"); // remove the token
     navigate("/login");
   };
 
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === "true"; // get isLoggedIn from local storage
+
   return (
     <nav>
-      <Link to="/">Home</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/signup">Signup</Link>
-      {/* You can add more navigation links as needed */}
-      <button 
-        style={{ 
-          padding: '10px', 
-          borderRadius: '10px', 
-          backgroundColor: 'white', 
-          color: 'black' 
-        }} 
-        onClick={handleLogout}
-      >
-        Log out
-      </button>
+      {isLoggedIn 
+      ? <>
+          <button 
+            style={{ 
+              padding: '10px', 
+              borderRadius: '10px', 
+              backgroundColor: 'white', 
+              color: 'black' 
+            }} 
+            onClick={handleLogout}
+          >
+            Log out
+          </button>
+          <button 
+            style={{ 
+              padding: '10px', 
+              borderRadius: '10px', 
+              backgroundColor: 'white', 
+              color: 'black' 
+            }} 
+            onClick={onModalToggle}
+          >
+            Create Poll
+          </button>
+        </>
+      : <>
+          <button onClick={() => navigate("/login")}>Login</button>
+          <button onClick={() => navigate("/signup")}>Signup</button>
+        </>
+      }
     </nav>
   );
 };
