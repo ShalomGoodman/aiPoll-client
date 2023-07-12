@@ -1,20 +1,35 @@
-import React from 'react';
-import AuthContextComponent from '../auth/AuthContextComponent';
-import validToken from '../auth/validToken';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; 
+import { AuthContext } from '../auth/AuthContextComponent'; // check if this path is correct
 
-const Navbar = ({ onModalToggle }) => {
+const NavBar = ({ onModalToggle }) => {
+  const navigate = useNavigate();
+  const { logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
-    <nav style={{ backgroundColor: '#dedede', color: 'white', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '25px' }}>
-      <div>
-        <img src="logo.png" alt="Logo" style={{ width: '50px', height: '50px', color: 'black' }} />
-        <span></span>
-      </div>
-      <div>
-        <button style={{ padding: '10px', borderRadius: '10px', backgroundColor: 'white', color: 'black', marginRight: '10px' }} onClick={onModalToggle}>Create poll</button>
-        <button style={{ padding: '10px', borderRadius: '10px', backgroundColor: 'white', color: 'black' }}>Log out</button>
-      </div>
+    <nav>
+      <Link to="/">Home</Link>
+      <Link to="/login">Login</Link>
+      <Link to="/signup">Signup</Link>
+      {/* You can add more navigation links as needed */}
+      <button 
+        style={{ 
+          padding: '10px', 
+          borderRadius: '10px', 
+          backgroundColor: 'white', 
+          color: 'black' 
+        }} 
+        onClick={handleLogout}
+      >
+        Log out
+      </button>
     </nav>
   );
 };
 
-export default Navbar;
+export default NavBar;
