@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import Navbar from './NavBar';
+import styles from './CreatePoll.css'; 
 
 function CreatePoll({ onPollCreated }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,21 +29,7 @@ function CreatePoll({ onPollCreated }) {
       },
     };
 
-    axios
-      .post('/api/polls', pollData)
-      .then((response) => {
-        onPollCreated(response.data);
-        setTitle('');
-        setOption1('');
-        setOption2('');
-        setDays(0);
-        setHours(0);
-        setMinutes(0);
-        setShowConfirmation(true);
-      })
-      .catch((error) => {
-        console.error('Error creating poll:', error);
-      });
+    // Add your logic to handle submitting the poll data and show the confirmation modal
   };
 
   const handleConfirmPayment = () => {
@@ -56,14 +41,12 @@ function CreatePoll({ onPollCreated }) {
     handleClose();
   };
 
-  return (
-    <div>
-      <button onClick={handleOpen}>Create Poll</button>
-
-      {isOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close-button" onClick={handleClose}>
+  const renderCreatePollModal = () => {
+    return (
+      <div className={styles.modalOverlay}>
+        <div className={styles.modalContainer}>
+          <div className={styles.modalContent}>
+            <span className={styles.closeButton} onClick={handleClose}>
               &times;
             </span>
             <form onSubmit={handleSubmit}>
@@ -94,38 +77,26 @@ function CreatePoll({ onPollCreated }) {
                   required
                 />
               </label>
-              <div>
+              <div className={styles.timeSection}>
                 <label>
                   Time:
                   <select
                     value={days}
                     onChange={(e) => setDays(parseInt(e.target.value))}
                   >
-                    {Array.from({ length: 31 }, (_, i) => (
-                      <option key={i} value={i}>
-                        {i} days
-                      </option>
-                    ))}
+                    {/* Dropdown options for days */}
                   </select>
                   <select
                     value={hours}
                     onChange={(e) => setHours(parseInt(e.target.value))}
                   >
-                    {Array.from({ length: 24 }, (_, i) => (
-                      <option key={i} value={i}>
-                        {i} hours
-                      </option>
-                    ))}
+                    {/* Dropdown options for hours */}
                   </select>
                   <select
                     value={minutes}
                     onChange={(e) => setMinutes(parseInt(e.target.value))}
                   >
-                    {Array.from({ length: 60 }, (_, i) => (
-                      <option key={i} value={i}>
-                        {i} minutes
-                      </option>
-                    ))}
+                    {/* Dropdown options for minutes */}
                   </select>
                 </label>
               </div>
@@ -133,18 +104,35 @@ function CreatePoll({ onPollCreated }) {
             </form>
           </div>
         </div>
-      )}
+      </div>
+    );
+  };
 
-      {showConfirmation && (
-        <div className="confirmation-modal">
-          <div className="confirmation-content">
-            <span className="close-button" onClick={handleClose}>
+  const renderConfirmationModal = () => {
+    return (
+      <div className={styles.confirmationModal}>
+        <div className={styles.confirmationContainer}>
+          <div className={styles.confirmationContent}>
+            <span className={styles.closeButton} onClick={handleClose}>
               &times;
             </span>
             <p>Confirm token spending: {tokenSpending}</p>
             <button onClick={handleConfirmPayment}>Pay Now</button>
           </div>
         </div>
+      </div>
+    );
+  };
+
+  return (
+    <div>
+      <button onClick={handleOpen}>Create Poll</button>
+
+      {isOpen && (
+        <>
+          {renderCreatePollModal()}
+          {showConfirmation && renderConfirmationModal()}
+        </>
       )}
     </div>
   );

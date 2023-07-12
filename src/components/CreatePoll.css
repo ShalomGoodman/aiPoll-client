@@ -1,25 +1,28 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 500px;
-  }
-  
-  .close-button {
-    float: right;
-    cursor: pointer;
-  }
-  
+  background-color: blue; /* Use the color you want here */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 80%;
+  z-index: 1001;
+  position: relative;
+  display: flex; /* Added */
+  flex-direction: column; /* Added */
+  align-items: center; /* Added */
+  justify-content: center; /* Added */
+}
+
+
