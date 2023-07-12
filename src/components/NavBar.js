@@ -1,4 +1,6 @@
 import React from 'react';
+import AuthContextComponent from '../auth/AuthContextComponent';
+import validToken from '../auth/validToken';
 
 const Navbar = ({ onModalToggle }) => {
   return (

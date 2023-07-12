@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from '../../assets/logo.png';
 
+
 function LoginPage() {
   const navigate = useNavigate();
 
@@ -23,17 +24,18 @@ function LoginPage() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        // "insert backend host route",
+        "https://ai-poll-b30b8a89907a.herokuapp.com/api/login/",
         {
           username,
           password,
         }
       );
-
+  
       if (response.status === 200) {
         setUsername("");
         setPassword("");
         localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem("token", response.data.token); // Save the token in local storage
         const logged = localStorage.getItem("isLoggedIn");
         navigate("/home");
       }
@@ -41,6 +43,7 @@ function LoginPage() {
       console.error(error);
     }
   };
+  
 
   return (
     <div className="sign-in">

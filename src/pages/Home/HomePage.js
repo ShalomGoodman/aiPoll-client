@@ -13,7 +13,12 @@ function HomePage() {
 
   const fetchPolls = async () => {
     try {
-      const response = await axios.get('/all-polls/');
+      const token = localStorage.getItem("token"); // Fetch the JWT token from local storage
+      const response = await axios.get('https://ai-poll-b30b8a89907a.herokuapp.com/api/polls/', {
+        headers: {
+          Authorization: `token ${token}`, // Set the token as the Authorization header
+        },
+      });
       setPolls(response.data);
     } catch (error) {
       console.error(error);
