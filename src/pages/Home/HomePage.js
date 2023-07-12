@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CreatePoll from '../../components/CreatePoll';
+import CreatePoll from '../../components/modal/CreatePoll';
 
 
 function HomePage() {
