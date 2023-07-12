@@ -1,0 +1,40 @@
+.pollpage-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e6ecf0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+ 
+  .poll-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+ 
+  .poll-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .poll-option input[type="radio"] {
+    margin-right: 8px;
+  }
+  
+  .poll-option label {
+    font-size: 16px;
+  }
+  
+
+  .poll-time {
+    margin-top: 10px;
+    color: #657786;
+    font-size: 14px;
+  }
+
+  
