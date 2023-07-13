@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import classnames from 'classnames';
-import './Poll.css'; // Import the CSS file
+import './pollpage.css'; // Import the CSS file
 
 const Poll = ({ poll }) => {
   const [pollData, setPollData] = useState({
