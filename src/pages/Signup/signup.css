@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   background:  rgba(13, 27, 42, 0.93);
-  
+
   }
 
 
@@ -19,6 +19,8 @@
     align-items: center;
     margin-bottom: 20px;
     text-align: center;
+    width: 1440px;
+    
   }
   
   .sign-up input {
@@ -34,7 +36,8 @@
   
      .sign-up input::placeholder {
       color: #ffffffa9;
-      text-align: center;
+      text-align: left;
+      font-size: 12px;
      }
      
      .sign-up input:focus::placeholder {
