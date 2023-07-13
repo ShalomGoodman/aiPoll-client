@@ -1,28 +1,35 @@
-// import React, { createContext, useState } from "react";
-// // import { LOCALSTORAGE_KEY } from "../auth/baseURL";
+import React, { createContext, useState } from 'react';
+import { signin, logout } from '../auth/validToken'; // Import the required functions
 
-// export const AuthContext = createContext(null);
+export const AuthContext = createContext(null); // Export AuthContext as a named export
 
-// export default function AuthContextComponent({ children }) {
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-//   const [name, setName] = useState({});
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
 
-//   useState(() => {
-//     const token = localStorage.getItem(LOCALSTORAGE_KEY);
-//     setIsLoggedIn(!!token);
-//   });
+  const login = async (username, password) => {
+    const data = await signin(username, password);
+    setUser({
+      id: data.user_id,
+      email: data.email,
+      token: data.token,
+    }); // Store the user's data in the state
+  };
 
-//   const handleLogout = () => {
-//     localStorage.removeItem(LOCALSTORAGE_KEY);
-//     localStorage.removeItem("isloggedin"); // Remove isloggedin key
-//     setIsLoggedIn(false);
-//   };
+  const handleLogout = () => {
+    logout();
+    setUser(null);
+    window.location.href = '/login'; // Redirect to the login page
+  };
 
-//   return (
-//     <AuthContext.Provider
-//       value={{ isLoggedIn, setIsLoggedIn, name, handleLogout }}
-//     >
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// }
+  const contextValue = {
+    user,
+    login,
+    logout: handleLogout, // Use the handleLogout function
+  };
+
+  return (
+    <AuthContext.Provider value={contextValue}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
