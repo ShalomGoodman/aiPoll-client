@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Comment from '../components/Comment';
 import base from '../auth/baseURL';
-import Comment from './Comment';
 
 
 function Chatbox({ chatbox_id }) {
@@ -20,11 +19,6 @@ function Chatbox({ chatbox_id }) {
       setComments(response.data);
     } catch (error) { console.error(error) }
   };
-
-  useEffect(() => {
-    // Fetch polls on component mount
-    fetchComments();
-  }, []);
 
   function handleCommentTextChange(event) {
     setCommentText(event.target.value);
