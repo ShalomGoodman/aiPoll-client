@@ -3,7 +3,7 @@ import axios from "axios";
 import "./loginpage.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import logo from '../../assets/logo.png';
+import logo from '../../assets/GOLD.png';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -34,7 +34,8 @@ function LoginPage() {
         setUsername("");
         setPassword("");
         localStorage.setItem("isLoggedIn", true);
-        localStorage.setItem("token", response.data.token); // Save the token in local storage
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("username", response) // Save the token in local storage
         navigate("/home");
       }
     } catch (error) {

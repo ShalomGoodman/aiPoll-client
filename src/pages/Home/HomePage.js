@@ -3,9 +3,9 @@ import axios from 'axios';
 import CreatePoll from '../../components/modal/CreatePoll';
 import Poll from '../../components/Poll';
 
-
 function HomePage() {
   const [polls, setPolls] = useState([]);
+  const [pollCreated, setPollCreated] = useState(false);  // Add this state
 
   const fetchPolls = async () => {
     try {
@@ -18,14 +18,20 @@ function HomePage() {
       setPolls(response.data);
     } catch (error) { console.error(error) }
   };
-  
+
+  // Make sure to fetch new polls whenever a poll is created
   useEffect(() => {
-    // Fetch polls on component mount
     fetchPolls();
-  }, []);
+  }, [pollCreated]);
+
+  // Call this function whenever a poll is created
+  const handlePollCreated = () => {
+    setPollCreated(prevState => !prevState);
+  };
 
   return (
     <div> 
+      <CreatePoll onPollCreated={handlePollCreated} />   {/* Pass the function as a prop to CreatePoll */}
       {polls.map((poll) => (
         <Poll key={poll.id} poll={poll} />
       ))}

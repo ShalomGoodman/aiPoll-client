@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import base from '../../auth/baseURL';
+import validToken from '../../auth/validToken'  // import the axios instance you have created
 
-function CreatePoll() {
+function CreatePoll({ onPollCreated }) {
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState('');
   const [choiceA, setChoiceA] = useState('');
@@ -46,17 +47,40 @@ function CreatePoll() {
     setMinutes(parseInt(e.target.value));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    console.log("Form Submitted");  // Add this line to check if the function is being called
     e.preventDefault();
-    // Handle form submission
-    console.log('Title:', title);
-    console.log('Choice A:', choiceA);
-    console.log('Choice B:', choiceB);
-    console.log('Days:', days);
-    console.log('Hours:', hours);
-    console.log('Minutes:', minutes);
-    handleClose();
-  };
+
+    try {
+      // Convert duration to minutes
+      const duration = days * 1440 + hours * 60 + minutes;
+
+      // Calculate the deadline datetime string
+      const deadline = new Date(Date.now() + duration * 60 * 1000).toISOString();
+
+      const poll = {
+        title: title,
+        option_a_label: choiceA,
+        option_b_label: choiceB,
+        deadline: deadline,
+        creator: localStorage.getItem('user_id'),
+      };
+      
+      console.log("Creator: ", poll.creator);
+      
+      const response = await base.post('/api/polls/', poll); // modify this path if it's not the correct endpoint
+
+      if(response.status === 200) { // Check if poll was successfully created
+        onPollCreated(); // Call the function passed from the parent component
+      }
+
+      handleClose();
+
+    } catch (error) {
+      console.error(error);
+      console.log(error.response.data); // Log the error response data
+    }
+  }
 
   return (
     <>
