@@ -8,30 +8,33 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(238 231 180 / 23%);
-  }
+  background:  rgba(13, 27, 42, 0.93);
   
+  }
+
 
   .sign-up form {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    text-align: center;
   }
   
   .sign-up input {
     line-height: 28px;
    border: 2px solid transparent;
-   border-bottom-color: #8fa0a0;
+   border-bottom-color:#415A77;;
    padding: .2rem 0;
    outline: none;
    background-color: transparent;
-   color: #28272c;
+   color: #E0E1DD;
    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
   
      .sign-up input::placeholder {
-      color: #777;
+      color: #ffffffa9;
+      text-align: center;
      }
      
      .sign-up input:focus::placeholder {
@@ -41,19 +44,19 @@
      
   
      .sign-up button {
-      width: 103px;
-      height: 40px;
-      background-color: #70ada7;
+      width: 119px;
+      height: 59px;
+      background-color: #415a77;
       color: #fff;
       border: none;
-      border-radius: 5em;
+      border-radius: 15px;
       font-size: 1em;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
     
     .sign-up  button:hover {
-      background-color: #147b71;
+      background-color: #dcc66c;
     }
   
   .redirect a {
@@ -61,12 +64,9 @@
     text-decoration: none;
   }
   
-  .signup-container a:hover {
-    text-decoration: underline;
-  }
-  
+
   .goTo {
-    color: rgb(19 13 13);
+    color: rgb(255, 255, 255);
     font-size: 12px; /* Increase the font size */
     /* background: rgba(193, 160, 160, 0.5); black background with 60% opacity */
     padding: 5px;
@@ -74,11 +74,7 @@
     
   }
   .link{
-    color:#0b8d1f;
+   color: rgba(0, 166, 126, 0.88);
     font-weight: bold;
   }
   
-  
-  .redirect a:hover {
-  text-decoration: underline;
-  }
