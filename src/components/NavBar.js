@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
-
+import './navbar.css';
 const NavBar = ({ onModalToggle }) => {
   const navigate = useNavigate();
 
@@ -14,8 +14,11 @@ const NavBar = ({ onModalToggle }) => {
 
   return (
     <nav>
+         <ul className="navbar-list"></ul>
       {isLoggedIn 
       ? <>
+        <Link to="/home"  onClick={() => navigate("/login")}>Home
+            </Link>
           <button 
             style={{ 
               padding: '10px', 
