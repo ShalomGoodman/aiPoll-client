@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Comment from '../components/Comment';
 
 function Chatbox(chatbox_id) {
-  const [comments, setComments] = useState([]);
+  const [chatbox, setChatbox] = useState([]);
+
+  useEffect(() => {
+    fetchChatbox();
+  }, []);
 
 
-  const fetchComments = async () => {
+  const fetchChatbox = async () => {
     try {
-      const response = await axios.get(`https://ai-poll-b30b8a89907a.herokuapp.com/api/chatbox/${chatbox_id}/`, {
+      const response = await axios.get(`https://ai-poll-b30b8a89907a.herokuapp.com/api/chatboxes/${chatbox_id}/`, {
         headers: {
           Authorization: 'token 1e1ac01a8f065d810ada1286bb47458bf06b354a'
         }
       });
-      setComments(response.data);
+      setChatbox(response.data);
     } catch (error) { console.error(error) }
   };
 
@@ -29,17 +35,18 @@ function Chatbox(chatbox_id) {
             <h3>Chatbox</h3>
           </div>
           <div className="chatbox-comments">
-            {comments.map((comment) => (
-              <div key={comment.id} className="comment">
-                <div className="user-profile">
-                  <span>{comment.creator_name}</span>
-                </div>
-                <div className="comment-content">
-                  <p>{comment.text}</p>
-                  <span>{comment.created_at}</span>
-                </div>
-              </div>
-            ))}
+          {chatbox.map((chatbox) => (
+  <div key={chatbox.id} className="comment">
+    <div className="user-profile">
+      <span>{chatbox.creator_name}</span>
+    </div>
+    <div className="chatbox-content">
+      <p>{chatbox.text}</p>
+      <span>{chatbox.created_at}</span>
+    </div>
+  </div>
+))}
+
           </div>
           <form onSubmit={handleSubmit}>
             <div>
