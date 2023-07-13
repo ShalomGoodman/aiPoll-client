@@ -16,8 +16,15 @@ const base = axios.create({
 });
 
 base.interceptors.request.use((config) => {
-  config.headers.Authorization = token;
+
+  const token = localStorage.getItem("token");
+  if (token) {
+   config.headers.Authorization = `token ${token}`; // Set the token in the Authorization header
+  }
   return config;
+},
+(error) => {
+  Promise.reject(error);
 });
 
 export default base;
