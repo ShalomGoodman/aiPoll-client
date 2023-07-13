@@ -49,6 +49,8 @@ export const getPrevTimeDifference = (timestamp) => {
     diffString += `${hours}h`;
   } else if (minutes > 0) {
     diffString += `${minutes}min`;
+  } else {
+    diffString += `now`;
   }
 
   return diffString.trim();

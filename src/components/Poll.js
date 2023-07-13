@@ -18,14 +18,13 @@ const Poll = ({ poll }) => {
 
   return (
     <div className="poll-container">
-      <p className="poll-creator">@{poll.user}</p>
-      <p className="poll-created">{prevTimeDifference}</p>
+      <p className="poll-creator">@{poll.user} - {prevTimeDifference}</p>
       <h2 className="poll-title">{poll.title}</h2>
       <div className="poll-choice">{poll.option_a_label}</div>
       <div className="poll-choice">{poll.option_b_label}</div>
-      <p className="poll-votes">{poll.total_votes} votes</p>
-      <p className="poll-deadline">{futureTimeDifference}</p>
-      <button className="poll-button" onClick={handleVoteButton}>Vote</button>
+      <p className="poll-votes">{poll.total_votes} votes - {futureTimeDifference}</p>
+      { poll.voting_status === 'open' ? <button className="poll-button" onClick={handleVoteButton}>Vote</button>  :  <button className="poll-button" onClick={handleVoteButton}>View</button>
+      }
     </div>
   );
 };
