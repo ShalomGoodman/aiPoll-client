@@ -1,28 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../components/'
+import './Comment.css'; // Import the CSS file
 
-function Comment() {
-  const [comments, setComments] = useState([]);
-
-  useEffect(() => {
-    fetchComments();
-  }, []);
-gi
-  const fetchComments = async () => {
-    try {
-      const response = await axios.get('http://127.0.0.1:8000/api/comments/');
-      setComments(response.data);
-    } catch (error) {
-      console.error('Error fetching comments:', error);
-    }
-  };
+function Comment({comment}) {
 
   return (
     <div className="comment-container">
-      {comments.map((comment) => (
-        <p key={comment.id}>{comment.text}</p>
-      ))}
+              <div key={comment.id} className="comment">
+                <div className="user-profile">
+                  <span>{comment.creator_name}</span>
+                </div>
+                <div className="comment-content">
+                  <p>{comment.text}</p>
+                  <span>{comment.created_at}</span>
+                </div>
+              </div>
     </div>
   );
 }
