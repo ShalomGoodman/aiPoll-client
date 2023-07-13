@@ -3,7 +3,6 @@ import base from '../auth/baseURL';
 
 function Chatbox({ chatbox_id }) {
   const [comments, setComments] = useState([]);
-  console.log(chatbox_id)
 
 
   const fetchComments = async () => {
