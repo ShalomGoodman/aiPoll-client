@@ -8,8 +8,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background:  rgba(13, 27, 42, 0.93);
-  
   }
 
 
@@ -19,12 +17,13 @@
     align-items: center;
     margin-bottom: 20px;
     text-align: center;
+    
   }
   
   .sign-up input {
     line-height: 28px;
    border: 2px solid transparent;
-   border-bottom-color:#415A77;;
+   border-bottom-color: #8fa0a0;
    padding: .2rem 0;
    outline: none;
    background-color: transparent;
@@ -33,8 +32,8 @@
     }
   
      .sign-up input::placeholder {
-      color: #ffffffa9;
-      text-align: center;
+      color: #E0E1DD;
+      font-size: 12px;
      }
      
      .sign-up input:focus::placeholder {
@@ -44,19 +43,19 @@
      
   
      .sign-up button {
-      width: 119px;
-      height: 59px;
+      width: 100px;
+      height: 50px;
       background-color: #415a77;
-      color: #fff;
+      color: #E0E1DD;
       border: none;
-      border-radius: 15px;
-      font-size: 1em;
+      border-radius: 12px;
+      font-size: 15px;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
     
     .sign-up  button:hover {
-      background-color: #dcc66c;
+      background-color: #486687;
     }
   
   .redirect a {
