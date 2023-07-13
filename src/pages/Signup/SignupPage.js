@@ -31,27 +31,27 @@ export default function SignupPage() {
     <div className="sign-up">
       <form onSubmit={handleSubmit}>
         <label>
-          Username:
+      
           <input
             type="text"
-            placeholder="Enter your username"
+            placeholder="create username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
         <br />
         <label>
-          Password:
+      
           <input
             type="password"
-            placeholder="Enter your password"
+            placeholder="create password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
         <br />
         <label>
-          MetaMask Wallet Address:
+
           <input
             type="text"
             placeholder="Enter your MetaMask wallet address"
@@ -64,7 +64,7 @@ export default function SignupPage() {
       </form>
       <span className="goTo">
         Already have an account? Click{" "}
-        <Link className="link" to="/signin">
+        <Link className="link" to="/login">
           here
         </Link>{" "}
         to sign in instead.
