@@ -6,7 +6,7 @@ import LoginPage from './pages/Login/LoginPage';
 import SignupPage from '../src/pages/Signup/SignupPage';
 import PollPage from './pages/Poll/PollPage';
 import Modal from './components/modal/CreatePoll';
-import { AuthProvider } from './auth/AuthContextComponent'; // check if this path is correct
+import { AuthProvider } from './auth/AuthContextComponent';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -19,14 +19,12 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="App">
-          <NavBar onModalToggle={handleModalToggle} />
           {showModal && <Modal />}
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path='/home' element={<HomePage/>} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/home" element={<><NavBar onModalToggle={handleModalToggle} /><HomePage /></>} />
+            <Route path="/" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-            <Route path="/poll/:id" element={<PollPage />} />
+            <Route path="/poll/:id" element={<><NavBar onModalToggle={handleModalToggle} /><PollPage /></>} />
           </Routes>
         </div>
       </Router>
