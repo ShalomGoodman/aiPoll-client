@@ -15,6 +15,8 @@ function App() {
     setShowModal(!showModal);
   };
 
+
+
   return (
     <AuthProvider>
       <Router>
@@ -23,7 +25,6 @@ function App() {
           <Routes>
             <Route path="/" element={<LoginPage />} />
             <Route path="/home" element={<><NavBar onModalToggle={handleModalToggle} /><HomePage /></>} />
-            <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/poll/:id" element={<><NavBar onModalToggle={handleModalToggle} /><PollPage /></>} />
           </Routes>
