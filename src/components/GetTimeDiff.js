@@ -36,11 +36,6 @@ export const getPrevTimeDifference = (timestamp) => {
   // Calculate the difference in milliseconds
   let diffMs = nowMs - timestampMs;
 
-  // Return "Final" if the timestamp is in the past
-  if (diffMs <= 0) {
-    return "Final";
-  }
-
   // Convert time difference from milliseconds to minutes, hours, and days
   const minutes = Math.floor((diffMs / (1000 * 60)) % 60);
   const hours = Math.floor((diffMs / (1000 * 60 * 60)) % 24);

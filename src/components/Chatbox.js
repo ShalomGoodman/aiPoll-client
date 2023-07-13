@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Comment from '../components/Comment';
 import base from '../auth/baseURL';
+import Comment from './Comment';
 
-function Chatbox(chatbox_id) {
-  const [chatbox, setChatbox] = useState([]);
+
+function Chatbox({ chatbox_id }) {
+  const [comments, setComments] = useState([]);
+  const [commentText, setCommentText] = useState(''); // Add this state
+
 
   useEffect(() => {
     fetchChatbox();
@@ -22,11 +26,22 @@ function Chatbox(chatbox_id) {
     fetchComments();
   }, []);
 
+  function handleCommentTextChange(event) {
+    setCommentText(event.target.value);
+  }
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Add your logic to handle submitting a comment
-    // You can store the comment, user handle, profile picture, and timestamp in the comments state
+    // Handle the form submission
+    const comment = base.post(`/api/comments/`, { 
+      id: comments.length + 1,
+      text: commentText,
+      chatbox: chatbox_id,
+      creator: Number(localStorage.getItem("user_id")),
+    
+    });
+    setComments(prevState => [...prevState, comment]);
   };
 
   return (
@@ -35,22 +50,14 @@ function Chatbox(chatbox_id) {
             <h3>Chatbox</h3>
           </div>
           <div className="chatbox-comments">
-          {chatbox.map((chatbox) => (
-  <div key={chatbox.id} className="comment">
-    <div className="user-profile">
-      <span>{chatbox.creator_name}</span>
-    </div>
-    <div className="chatbox-content">
-      <p>{chatbox.text}</p>
-      <span>{chatbox.created_at}</span>
-    </div>
-  </div>
-))}
+            {comments.map((comment) => (
+              <Comment key={comment.id} comment={comment} />
+            ))}
 
           </div>
           <form onSubmit={handleSubmit}>
             <div>
-              <textarea required></textarea>
+              <textarea onChange={handleCommentTextChange} required></textarea>
             </div>
             <button type="submit">Send</button>
           </form>
