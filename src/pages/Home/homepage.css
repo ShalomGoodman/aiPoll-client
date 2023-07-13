@@ -1,0 +1,73 @@
+.logo {
+    width: 200px; /* Set the width of the logo element */
+    height: 100px; /* Set the height of the logo element */
+    background-image: url("/Users/elijah/Desktop/GA_beherenow/aiPoll-client./src/assets/GOLD.png"); /* Specify the path to your logo image */
+    background-size: cover; /* Scale the background image to cover the entire element */
+  }
+  
+.home-page {
+    padding: 20px;
+    background-color: #0D1B2AED;
+    color: #E0E1DD;
+      
+  }
+  
+  .polls-container {
+    display: inline-block;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .poll-container {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .poll-container:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .poll-container h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .poll-container p {
+    font-size: 14px;
+    color: #888888;
+  }
+  
+  .poll-container .options {
+    margin-top: 20px;
+  }
+  
+  .poll-container .option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .poll-container .option input[type='radio'] {
+    margin-right: 10px;
+  }
+  
+  .poll-container .option label {
+    font-size: 14px;
+  }
+  
+  .poll-container .vote-btn {
+    background-color: #3b5998;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .poll-container .vote-btn:hover {
+    background-color: #293e6a;
+  }
+  
