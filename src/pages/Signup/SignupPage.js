@@ -54,7 +54,7 @@ export default function SignupPage() {
 
           <input
             type="text"
-            placeholder="Enter your MetaMask wallet address"
+            placeholder=" MetaMask wallet address"
             value={walletAddress}
             onChange={(event) => setWalletAddress(event.target.value)}
           />
