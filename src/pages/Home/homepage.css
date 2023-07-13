@@ -1,15 +1,14 @@
 .logo {
-    width: 200px; /* Set the width of the logo element */
-    height: 100px; /* Set the height of the logo element */
-    background-image: url("../../assets/GOLD.png"); /* Specify the path to your logo image */
-    background-size: cover; /* Scale the background image to cover the entire element */
+    width: 200px; 
+    height: 100px; 
+    background-image: url("../../assets/GOLD.png");
+    background-size: cover; 
   }
   
 .home-page {
     padding: 20px;
     background-color: #0D1B2AED;
-    color: #E0E1DD;
-      
+    color: #E0E1DD;    
   }
   
   .polls-container {

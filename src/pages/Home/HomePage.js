@@ -44,6 +44,7 @@ function HomePage() {
           <div key={poll.id} className="poll-container">
             <Poll poll={poll} />
           </div>
+          
         ))}
       </div>
     </div>
