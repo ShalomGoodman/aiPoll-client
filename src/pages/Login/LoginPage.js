@@ -34,7 +34,8 @@ function LoginPage() {
         setUsername("");
         setPassword("");
         localStorage.setItem("isLoggedIn", true);
-        localStorage.setItem("token", response.data.token); // Save the token in local storage
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("username", response) // Save the token in local storage
         navigate("/home");
       }
     } catch (error) {
