@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import Comment from '../components/Comment';
 import base from '../auth/baseURL';
 
-function Chatbox({ chatbox_id }) {
-  const [comments, setComments] = useState([]);
-  console.log(chatbox_id)
+function Chatbox(chatbox_id) {
+  const [chatbox, setChatbox] = useState([]);
+
+  useEffect(() => {
+    fetchChatbox();
+  }, []);
 
 
-  const fetchComments = async () => {
+  const fetchChatbox = async () => {
     try {
       const response = await base.get(`/api/chatboxes/${chatbox_id}/`, {});
       setComments(response.data);
@@ -31,17 +35,18 @@ function Chatbox({ chatbox_id }) {
             <h3>Chatbox</h3>
           </div>
           <div className="chatbox-comments">
-            {comments.map((comment) => (
-              <div key={comment.id} className="comment">
-                <div className="user-profile">
-                  <span>{comment.creator_name}</span>
-                </div>
-                <div className="comment-content">
-                  <p>{comment.text}</p>
-                  <span>{comment.created_at}</span>
-                </div>
-              </div>
-            ))}
+          {chatbox.map((chatbox) => (
+  <div key={chatbox.id} className="comment">
+    <div className="user-profile">
+      <span>{chatbox.creator_name}</span>
+    </div>
+    <div className="chatbox-content">
+      <p>{chatbox.text}</p>
+      <span>{chatbox.created_at}</span>
+    </div>
+  </div>
+))}
+
           </div>
           <form onSubmit={handleSubmit}>
             <div>
