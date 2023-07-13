@@ -9,15 +9,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #0D1B2AED ;
   /* Add any other background styles you want */
 }
 
 .sign-in img {
   width: auto;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 53px;
   margin-top: -20px;
+ 
 }
 
 .sign-in form {
