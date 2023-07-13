@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import NavBar from './components/NavBar';
 import HomePage from './pages/Home/HomePage';
 import LoginPage from './pages/Login/LoginPage';
+import SignupPage from '../src/pages/Signup/SignupPage';
 import PollPage from './pages/Poll/PollPage';
-import SignupPage from './pages/Signup/SignupPage';
-import NavBar from './components/NavBar';
-import Modal from '../src/components/modal/CreatePoll';
-import '../src/components/CreatePoll.css';
+import Modal from './components/modal/CreatePoll';
+import { AuthProvider } from './auth/AuthContextComponent'; // check if this path is correct
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -17,19 +16,21 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className="App">
-        <NavBar onModalToggle={handleModalToggle} />
-        {showModal && <Modal />}
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/poll/:id" element={<PollPage />} />
-        </Routes>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <NavBar onModalToggle={handleModalToggle} />
+          {showModal && <Modal />}
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path='/home' element={<HomePage/>} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/poll/:id" element={<PollPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
