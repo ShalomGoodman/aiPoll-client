@@ -1,31 +1,20 @@
-.logo {
-    width: 200px; 
-    height: 100px; 
-    background-image: url("../../assets/GOLD.png");
-    background-size: cover; 
-  }
-  
 .home-page {
     padding: 20px;
-    background-color: #0D1B2AED;
-    color: #E0E1DD;    
+    color: #14171a;
+    font-family: Arial, sans-serif;
   }
   
   .polls-container {
-    display: inline-block;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
   }
   
   .poll-container {
     background-color: #ffffff;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-  }
-  
-  .poll-container:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
   }
   
   .poll-container h3 {
@@ -35,11 +24,13 @@
   
   .poll-container p {
     font-size: 14px;
-    color: #888888;
+    color: #657786;
+    margin-bottom: 10px;
   }
   
   .poll-container .options {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
   }
   
   .poll-container .option {
@@ -57,16 +48,60 @@
   }
   
   .poll-container .vote-btn {
-    background-color: #3b5998;
+    background-color: #1da1f2;
     color: #ffffff;
     padding: 8px 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 9999px;
     font-size: 14px;
     cursor: pointer;
   }
   
   .poll-container .vote-btn:hover {
-    background-color: #293e6a;
+    background-color: #0f86d3;
+  }
+  
+  .home-page h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .poll-container .poll-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .poll-container .poll-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .poll-container .poll-info .username {
+    font-weight: bold;
+  }
+  
+  .poll-container .poll-info .timestamp {
+    color: #657786;
+    font-size: 12px;
+  }
+  
+  .poll-container .poll-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .poll-container .poll-actions .action-btn {
+    color: #657786;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .poll-container .poll-actions .action-btn:hover {
+    text-decoration: underline;
   }
   
