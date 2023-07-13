@@ -1,95 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Poll.css'; // Import the CSS file
+// import './Poll.css'; // Import the CSS file
 
-const Poll = ({ poll }) => {
-  const [pollData, setPollData] = useState({
-    id: 1,
-    user: '',
-    title: '',
-    option_a_label: '',
-    option_a_votes: 0,
-    option_b_label: '',
-    option_b_votes: 0,
-    created: '2023-07-11T19:28:25.362479Z',
-    winner: null,
-    voting_status: 'open',
-    duration_minutes: 0,
-    creator: 1,
-    chatbox: 1
-  });
-  const [selectedChoice, setSelectedChoice] = useState('');
+const Poll = ( { poll } ) => {
+  function getTimeDifference(timestamp) {
+    // Convert both dates to milliseconds
+    const timestampMs = new Date(timestamp).getTime();
+    const nowMs = Date.now();
+    
+    // Calculate the difference in milliseconds
+    let diffMs = nowMs - timestampMs;
 
-  useEffect(() => {
-    // Fetch poll data from the backend API
-    const fetchPollData = async () => {
-      try {
-        const response = await axios.get(`/api/polls/${poll.id}/`);
-        setPollData(response.data);
-      } catch (error) {
-        console.error('Error fetching poll data:', error);
-      }
-    };
+    // Return "0 minutes" if the timestamp is in the past
+    if (diffMs > 0) {
+      return "Final";
+    }
 
-    fetchPollData();
-  }, [poll.id]);
+    // Convert time difference from milliseconds to minutes, hours and days
+    const minutes = Math.floor((diffMs / (1000 * 60)) % 60);
+    const hours = Math.floor((diffMs / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    
+    // Create time difference string
+    let diffString = '';
+    if (days > 0) diffString += `${days} day${days !== 1 ? 's' : ''} `;
+    if (hours > 0) diffString += `${hours} hour${hours !== 1 ? 's' : ''} `;
+    if (minutes > 0) diffString += `${minutes} min${minutes !== 1 ? 's' : ''} left`;
+    
+    // Remove any extra space at the end
+    diffString = diffString.trim();
+    
+    return diffString;
+}
+let timeDifference = getTimeDifference(poll.deadline);
 
-  const handleChoiceChange = (event) => {
-    setSelectedChoice(event.target.value);
-  };
-
-  const handleVote = () => {
-    console.log(selectedChoice);
-    // Add your logic here to submit the vote to the backend
-  };
-
-  const handleOptionAClick = () => {
-    setSelectedChoice('A');
-    handleVote();
-  };
-
-  const handleOptionBClick = () => {
-    setSelectedChoice('B');
-    handleVote();
-  };
 
   return (
     <div className="poll-container">
-      <h2 className="poll-title">{pollData.title}</h2>
-      <p className="poll-category">{pollData.category}</p>
-      <p className="poll-deadline">Deadline: {pollData.deadline}</p>
-
-      <div className="poll-form">
-        <div className="poll-choice">
-          <label>
-            <input
-              type="radio"
-              value="A"
-              checked={selectedChoice === 'A'}
-              onChange={handleChoiceChange}
-            />
-            <span onClick={handleOptionAClick} className="poll-option-label">
-              {pollData.option_a_label}
-            </span>
-          </label>
-          <p className="poll-votes">Votes: {pollData.option_a_votes}</p>
-        </div>
-
-        <div className="poll-choice">
-          <label>
-            <input
-              type="radio"
-              value="B"
-              checked={selectedChoice === 'B'}
-              onChange={handleChoiceChange}
-            />
-            <span onClick={handleOptionBClick} className="poll-option-label">
-              {pollData.option_b_label}
-            </span>
-          </label>
-          <p className="poll-votes">Votes: {pollData.option_b_votes}</p>
-        </div>
-      </div>
+      <p className="poll-creator">@{poll.user}</p>
+      <p className="poll-created">{poll.created}</p>
+      <h2 className="poll-title">{poll.title}</h2>
+        <div className="poll-choice" >{poll.option_a_label}</div>
+        <div className="poll-choice" >{poll.option_b_label}</div>
+      <p className="poll-votes">{poll.total_votes} votes</p>
+      <p className="poll-deadline">{timeDifference}</p>
+      <button className="poll-button">Vote</button>
+      
     </div>
   );
 };

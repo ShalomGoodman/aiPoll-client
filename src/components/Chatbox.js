@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-function Chatbox() {
-  const [isOpen, setIsOpen] = useState(false);
+function Chatbox(chatbox_id) {
   const [comments, setComments] = useState([]);
 
-  const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
+
+  const fetchComments = async () => {
+    try {
+      const response = await axios.get(`https://ai-poll-b30b8a89907a.herokuapp.com/api/chatbox/${chatbox_id}/`, {
+        headers: {
+          Authorization: 'token 1e1ac01a8f065d810ada1286bb47458bf06b354a'
+        }
+      });
+      setComments(response.data);
+    } catch (error) { console.error(error) }
+  };
+
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,48 +24,31 @@ function Chatbox() {
   };
 
   return (
-    <div>
-      <button onClick={handleOpen}>Open Chatbox</button>
-
-      {isOpen && (
         <div className="chatbox">
           <div className="chatbox-header">
             <h3>Chatbox</h3>
-            <button onClick={handleClose}>Close</button>
           </div>
           <div className="chatbox-comments">
-            {comments.map((comment, index) => (
-              <div key={index} className="comment">
+            {comments.map((comment) => (
+              <div key={comment.id} className="comment">
                 <div className="user-profile">
-                  <img src={comment.profilePicture} alt="Profile" />
-                  <span>{comment.userHandle}</span>
+                  <span>{comment.creator_name}</span>
                 </div>
                 <div className="comment-content">
-                  <p>{comment.comment}</p>
-                  <span>{comment.timestamp}</span>
+                  <p>{comment.text}</p>
+                  <span>{comment.created_at}</span>
                 </div>
               </div>
             ))}
           </div>
           <form onSubmit={handleSubmit}>
             <div>
-              <label>User Handle:</label>
-              <input type="text" required />
-            </div>
-            <div>
-              <label>Profile Picture:</label>
-              <input type="file" accept="image/*" required />
-            </div>
-            <div>
-              <label>Comment:</label>
               <textarea required></textarea>
             </div>
-            <button type="submit">Submit Comment</button>
+            <button type="submit">Send</button>
           </form>
         </div>
-      )}
-    </div>
-  );
+      );
 }
 
 export default Chatbox;
