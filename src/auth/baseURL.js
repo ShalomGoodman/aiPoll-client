@@ -16,7 +16,7 @@ const base = axios.create({
 });
 
 base.interceptors.request.use((config) => {
-  config.headers.Authorization = token;
+  config.headers.Authorization = `token ${token}`; // Set the token in the Authorization header
   return config;
 });
 

@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import base from '../auth/baseURL';
 
-function Chatbox(chatbox_id) {
+function Chatbox({ chatbox_id }) {
   const [comments, setComments] = useState([]);
+  console.log(chatbox_id)
 
 
   const fetchComments = async () => {
     try {
-      const response = await axios.get(`https://ai-poll-b30b8a89907a.herokuapp.com/api/chatbox/${chatbox_id}/`, {
-        headers: {
-          Authorization: 'token 1e1ac01a8f065d810ada1286bb47458bf06b354a'
-        }
-      });
+      const response = await base.get(`/api/chatboxes/${chatbox_id}/`, {});
       setComments(response.data);
     } catch (error) { console.error(error) }
   };
 
+  useEffect(() => {
+    // Fetch polls on component mount
+    fetchComments();
+  }, []);
 
 
   const handleSubmit = (event) => {
