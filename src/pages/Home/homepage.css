@@ -1,15 +1,15 @@
 .logo {
     width: 200px; /* Set the width of the logo element */
     height: 100px; /* Set the height of the logo element */
-    background-image: url("/Users/elijah/Desktop/GA_beherenow/aiPoll-client./src/assets/GOLD.png"); /* Specify the path to your logo image */
+    background-image: url("../../assets/GOLD.png");
+      /* Specify the path to your logo image */
     background-size: cover; /* Scale the background image to cover the entire element */
   }
   
 .home-page {
     padding: 20px;
     background-color: #0D1B2AED;
-    color: #E0E1DD;
-      
+    color: #E0E1DD;    
   }
   
   .polls-container {
