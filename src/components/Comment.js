@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Comment.css'; // Import the CSS file
+import { getPrevTimeDifference } from './GetTimeDiff';
 
 function Comment({comment}) {
+
+  const prevTimeDifference = getPrevTimeDifference(comment.created_at);
 
  return (
     <div className="comment-container">
@@ -12,7 +15,7 @@ function Comment({comment}) {
                 </div>
                 <div className="comment-content">
                   <p>{comment.text}</p>
-                  <span>{comment.created_at}</span>
+                  <span>{prevTimeDifference}</span>
                 </div>
               </div>
     </div>
