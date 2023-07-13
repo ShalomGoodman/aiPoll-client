@@ -8,7 +8,9 @@ const Navbar = () => {
         <span></span>
       </div>
       <div>
+        
         <button style={{ padding: '10px', borderRadius: '10px', backgroundColor: 'white', color: 'black', marginRight: '10px' }}>Create poll</button>
+
         <button style={{ padding: '10px', borderRadius: '10px', backgroundColor: 'white', color: 'black' }}>Log out</button>
       </div>
     </nav>

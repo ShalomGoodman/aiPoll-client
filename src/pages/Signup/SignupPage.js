@@ -5,10 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
 export default function SignupPage() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(""); // Switch to username
+  const [email, setEmail] = useState(""); // Remove
   const [password, setPassword] = useState("");
-  const [verifyPassword, setVerifyPassword] = useState("");
+  const [verifyPassword, setVerifyPassword] = useState(""); // Remove
+  // TODO: Add metamask wallet address
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -18,9 +19,9 @@ export default function SignupPage() {
       // Make API requests, validations, or any other necessary operations
 
       setName("");
-      setEmail("");
+      setEmail(""); // Remove
       setPassword("");
-      setVerifyPassword("");
+      setVerifyPassword(""); // Remove
       toast.success("Successfully signed up!", { autoClose: 1500 });
       navigate("/signin");
     } catch (error) {
