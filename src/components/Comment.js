@@ -4,7 +4,7 @@ import './Comment.css'; // Import the CSS file
 
 function Comment({comment}) {
 
-  return (
+ return (
     <div className="comment-container">
               <div key={comment.id} className="comment">
                 <div className="user-profile">

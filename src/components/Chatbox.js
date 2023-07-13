@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import Comment from '../components/Comment';
 import base from '../auth/baseURL';
 import Comment from './Comment';
+
 
 function Chatbox({ chatbox_id }) {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState(''); // Add this state
 
 
-  const fetchComments = async () => {
+  useEffect(() => {
+    fetchChatbox();
+  }, []);
+
+
+  const fetchChatbox = async () => {
     try {
       const response = await base.get(`/api/chatboxes/${chatbox_id}/`, {});
       setComments(response.data);
@@ -46,6 +53,7 @@ function Chatbox({ chatbox_id }) {
             {comments.map((comment) => (
               <Comment key={comment.id} comment={comment} />
             ))}
+
           </div>
           <form onSubmit={handleSubmit}>
             <div>
