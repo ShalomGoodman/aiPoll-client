@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { parseUnits, formatUnits } from 'ethers';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import base from '../../auth/baseURL';
+import { tokenTransfer, erc20contract } from '../../interfaces/ERC20Interface';
 import { Link } from 'react-router-dom'; 
+
 
 function CreatePoll({ onPollCreated }) {
   const [showModal, setShowModal] = useState(false);
@@ -14,6 +17,22 @@ function CreatePoll({ onPollCreated }) {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
+  const [transfer, setTransfer] = useState({});
+  const [tokenPrice, setTokenPrice] = useState(0);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  function addSmartContractListener() {
+    erc20contract.on('Transfer', (message, _to, _value) => {
+      console.log(message, _to, _value);
+      // setTransfer(data);
+    });
+  }
+
+  useEffect(() => {
+    addSmartContractListener();
+  }, []);
 
   const handleOpen = () => {
     setShowModal(true);
@@ -37,18 +56,60 @@ function CreatePoll({ onPollCreated }) {
 
   const handleDaysChange = (e) => {
     setDays(parseInt(e.target.value));
+    updateTokenPrice(parseInt(e.target.value), hours, minutes);
   };
 
   const handleHoursChange = (e) => {
     setHours(parseInt(e.target.value));
+    updateTokenPrice(days, parseInt(e.target.value), minutes);
   };
 
   const handleMinutesChange = (e) => {
     setMinutes(parseInt(e.target.value));
+    updateTokenPrice(days, hours, parseInt(e.target.value));
+  };
+
+  const updateTokenPrice = (selectedDays, selectedHours, selectedMinutes) => {
+    const totalHours = selectedDays * 24 + selectedHours;
+    const tokenPerHour = 1; // Number of tokens per hour
+    const tokenAmount = totalHours * tokenPerHour;
+    setTokenPrice(tokenAmount);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setLoading(true); // Set loading state to true
+
+    // Get user's Metamask address
+    const userAddress = '0xfc22954a701CfD0f59357FfA97044D78b21828ce';
+
+    // Calculate the token amount based on the token price
+    const tokenAmount = tokenPrice;
+
+    // Try to make the transfer
+    try {
+      const transaction = await tokenTransfer(userAddress, tokenAmount);
+
+      // Wait for the transaction to finish
+      const result = await transaction.wait();
+
+      if (result.status !== 1) { // Check if transaction was successful
+        console.error("Token transfer failed.");
+        setSubmitError(true);
+        setLoading(false); // Set loading state to false
+        return;
+      }
+
+      console.log("Token transfer successful!");
+    } catch (err) {
+      console.error(err);
+      setSubmitError(true);
+      setLoading(false); // Set loading state to false
+      return;
+    }
+
+
     try {
       const duration = days * 1440 + hours * 60 + minutes;
       const deadline = new Date(Date.now() + duration * 60 * 1000).toISOString();
@@ -59,11 +120,23 @@ function CreatePoll({ onPollCreated }) {
         deadline: deadline,
         creator: localStorage.getItem('user_id'),
       };
-      const response = await base.post('/api/polls/', poll);
-      if(response.status === 200) { onPollCreated() }
+
+      const response = await base.post('/api/polls/', poll); // modify this path if it's not the correct endpoint
+
+      if (response.status === 200) { // Check if poll was successfully created
+        setSubmitSuccess(true);
+        onPollCreated(); // Call the function passed from the parent component
+      } else {
+        setSubmitError(true);
+      }
+
+      setLoading(false); // Set loading state to false
+
       handleClose();
     } catch (error) {
       console.error(error);
+      setSubmitError(true);
+      setLoading(false); // Set loading state to false
       console.log(error.response.data); // Log the error response data
     }
   }
@@ -115,36 +188,38 @@ function CreatePoll({ onPollCreated }) {
                     <option value={1}>1 hour</option>
                     <option value={2}>2 hours</option>
                     <option value={3}>3 hours</option>
-                    <option value={4}>4 hour</option>
+                    <option value={4}>4 hours</option>
                     <option value={5}>5 hours</option>
                     <option value={6}>6 hours</option>
                     <option value={7}>7 hours</option>
-                    <option value={8}>8 hours</option>
-                    <option value={9}>9 hours</option>
-                    <option value={10}>10 hours</option>
-                    <option value={11}>11 hours</option>
-                    <option value={12}>12 hours</option>
-                    {/* Add more options for hours */}
                   </Form.Control>
                   <Form.Control as="select" value={minutes} onChange={handleMinutesChange}>
                     <option value={0}>0 minutes</option>
-                    <option value={15}>15 minutes</option>
-                    <option value={30}>30 minutes</option>
-                    <option value={45}>45 minutes</option>
+                    <option value={1}>1 minute</option>
+                    <option value={2}>2 minutes</option>
+                    <option value={3}>3 minutes</option>
+                    <option value={4}>4 minutes</option>
+                    <option value={5}>5 minutes</option>
+                    <option value={6}>6 minutes</option>
+                    <option value={7}>7 minutes</option>
                   </Form.Control>
                 </Form.Group>
 
+                <Form.Group>
+                  <Form.Label>Token Price:</Form.Label>
+                  <span>{tokenPrice} tokens</span>
+                </Form.Group>
+
+                <Button variant="primary" type="submit" disabled={loading}>
+                  {loading ? "Loading..." : "Submit"}
                 <Button variant="primary" type="submit">
                   10 ETH to Post Poll
                 </Button>
+
+                {submitSuccess && <p>Submit successful!</p>}
+                {submitError && <p>Submit failed. Please try again.</p>}
               </Form>
             </Modal.Body>
-
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-            </Modal.Footer>
           </Modal>
         </div>
       )}
