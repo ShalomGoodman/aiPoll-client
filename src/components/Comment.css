@@ -16,10 +16,14 @@ height: 50px;
 button {
   border-radius: 34px;
   background-color: #415a77;
-  color: #E0E1DD;
+  color: #e0e1ddb8;
   border: none;
   border-radius: 12px;
   font-size: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #f2cf525e;
 }
