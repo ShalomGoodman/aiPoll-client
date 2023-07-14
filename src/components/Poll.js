@@ -17,12 +17,12 @@ const Poll = ({ poll }) => {
   };
 
   return (
-    <div>
-      <p className="poll-creator">@{poll.user} - {prevTimeDifference}</p>
+    <div className="poll-container">
+      <p className="poll-creator">@{poll.user} • {prevTimeDifference}</p>
       <h2 className="poll-title">{poll.title}</h2>
       <div className="poll-choice">{poll.option_a_label}</div>
       <div className="poll-choice">{poll.option_b_label}</div>
-      <p className="poll-votes">{poll.total_votes} votes - {futureTimeDifference}</p>
+      <p className="poll-votes">{poll.total_votes} votes • {futureTimeDifference}</p>
       { poll.voting_status === 'open' ? <button className="poll-button" onClick={handleVoteButton}>Vote</button>  :  <button className="poll-button" onClick={handleVoteButton}>View</button>
       }
     </div>

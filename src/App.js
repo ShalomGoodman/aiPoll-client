@@ -8,6 +8,8 @@ import PollPage from './pages/Poll/PollPage';
 import Modal from './components/modal/CreatePoll';
 import { AuthProvider } from './auth/AuthContextComponent';
 import { ConnectWallet, getCurrentWalletConnected } from './util/walletConnection';
+import { ToastContainer, toast } from "react-toastify";
+import '../node_modules/react-toastify/dist/ReactToastify.css'
 
 function App() {
   const [walletAddress, setWallet] = useState("");
@@ -32,6 +34,7 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="App">
+          <ToastContainer />
           <NavBar connectWallet={connectWallet} walletAddress={walletAddress} />
           <Routes>
             <Route path="/home" element={<HomePage />} />

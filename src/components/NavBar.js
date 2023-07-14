@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './navbar.css';
 import CreatePoll from './modal/CreatePoll';
+import { ToastContainer, toast } from 'react-toastify';
 
 const NavBar = ({ connectWallet, walletAddress }) => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const NavBar = ({ connectWallet, walletAddress }) => {
     localStorage.setItem("isLoggedIn", false); // set isLoggedIn to false
     localStorage.removeItem("token"); // remove the token
     navigate("/login");
+    toast.success("Logged out successfully!", { autoClose: 1500 });
   };
 
   const isLoggedIn = localStorage.getItem('isLoggedIn') === "true"; // get isLoggedIn from local storage

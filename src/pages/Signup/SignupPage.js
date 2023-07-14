@@ -15,17 +15,23 @@ export default function SignupPage() {
     event.preventDefault();
     try {
       await signup(username, password, walletAddress);
-
+  
       setUsername("");
       setPassword("");
       setWalletAddress("");
       toast.success("Successfully signed up!", { autoClose: 1500 });
-      navigate("/signin");
+      navigate("/login");
     } catch (error) {
-      toast.error("An error occurred", { autoClose: 1500 });
-      console.log(error);
+      if (error.response.data.username) {
+        toast.error("Please enter a valid Username", { autoClose: 1500 });
+      } else if (error.response.data.password) {
+        toast.error("Please enter a valid Password", { autoClose: 1500 });
+      } else if (error.response.data.userprofile) {
+        toast.error("Please enter a valid Wallet Address", { autoClose: 1500 });
+      }
     }
   };
+  
 
   return (
     <div className="sign-up">
@@ -69,7 +75,7 @@ export default function SignupPage() {
         </Link>{" "}
         to sign in instead.
       </span>
-      <ToastContainer />
+
     </div>
   );
 }
