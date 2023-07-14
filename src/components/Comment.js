@@ -11,7 +11,7 @@ function Comment({comment}) {
     <div className="comment-container">
               <div key={comment.id} className="comment">
                 <div className="user-profile">
-                  <span>{comment.creator_name}</span>
+                  <span>@{comment.creator_name}</span>
                 </div>
                 <div className="comment-content">
                   <p>{comment.text}</p>

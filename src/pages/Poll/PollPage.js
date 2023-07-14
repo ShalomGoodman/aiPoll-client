@@ -24,7 +24,7 @@ const PollPage = () => {
     setUserVoted(votedPolls.includes(id));
 
     fetchPollData();
-  }, [id]);
+  }, [id, userVoted]);
 
   const futureTimeDifference = pollData ? getFutureTimeDifference(pollData.deadline) : null;
   const prevTimeDifference = pollData ? getPrevTimeDifference(pollData.created) : null;
@@ -52,14 +52,10 @@ const PollPage = () => {
           { userVoted || pollData.voting_status == 'closed' ? (
             <div className="poll-results">
               <div className="poll-result">
-                <div className="poll-result-label">{pollData.option_a_label}</div>
-                <div className="poll-result-bar" style={{ width: `${pollData.option_a_percentage}%` }}></div>
-                <div className="poll-result-percentage">{pollData.percentages[0]}%</div>
+                <div className="poll-result-label" style={{ width: `${pollData.percentages[0]}%` }}>{pollData.option_a_label} - {pollData.percentages[0]}%</div>
               </div>
               <div className="poll-result">
-                <div className="poll-result-label">{pollData.option_b_label}</div>
-                <div className="poll-result-bar" style={{ width: `${pollData.option_b_percentage}%` }}></div>
-                <div className="poll-result-percentage">{pollData.percentages[1]}%</div>
+                <div className="poll-result-label" style={{ width: `${pollData.percentages[1]}%` }}>{pollData.option_b_label} - {pollData.percentages[1]}%</div>
               </div>
             </div>
           ) : <div>
