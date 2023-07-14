@@ -1,4 +1,3 @@
-/* Styles for Signup component */
 .sign-up {
   text-align: center;
   margin: 0;
@@ -65,12 +64,10 @@
 
   .goTo {
     color: rgb(255, 255, 255);
-    font-size: 12px; /* Increase the font size */
-    /* background: rgba(193, 160, 160, 0.5); black background with 60% opacity */
+    font-size: 12px; 
     padding: 5px;
-     /* Add padding for better visibility */
-    
   }
+  
   .link{
    color: rgba(0, 166, 126, 0.88);
     font-weight: bold;
