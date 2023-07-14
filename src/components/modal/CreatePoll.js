@@ -212,6 +212,7 @@ function CreatePoll({ onPollCreated }) {
 
                 <Button variant="primary" type="submit" disabled={loading}>
                   {loading ? "Loading..." : "Submit"}
+                  </Button> 
                 <Button variant="primary" type="submit">
                   10 ETH to Post Poll
                 </Button>
