@@ -47,7 +47,7 @@ const PollPage = () => {
   };
 
   return (
-    <div>
+    <div className='vote-container'>
       {pollData && (
         <>
           <p className="poll-creator">@{pollData.user} • {prevTimeDifference}</p>
