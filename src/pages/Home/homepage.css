@@ -106,10 +106,12 @@
   text-decoration: underline;
 }
 
+ .home-page {
     padding: 20px;
     color: #14171a;
     font-family: Arial, sans-serif;
   }
+  
   
   .polls-container {
     display: flex;
