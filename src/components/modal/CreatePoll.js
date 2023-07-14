@@ -70,14 +70,14 @@ function CreatePoll({ onPollCreated }) {
   return (
     <>
       <Button variant="primary" onClick={handleOpen}>
-        POLL IT!
+        Create Poll
       </Button>
 
       {showModal && (
         <div className="modal-overlay">
           <Modal show={showModal} onHide={handleClose} centered>
             <Modal.Header closeButton>
-              <Modal.Title>Create a Poll</Modal.Title>
+              <Modal.Title>New Poll</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>

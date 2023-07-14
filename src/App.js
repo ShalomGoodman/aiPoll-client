@@ -12,9 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 import '../node_modules/react-toastify/dist/ReactToastify.css'
 
 function App() {
-
   const [walletAddress, setWallet] = useState("");
-
   const [walletStatus, setWalletStatus] = useState("");
 
   const connectWallet = async () => {
@@ -36,21 +34,8 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="App">
-          <div id="container">
-            <button id="walletButton" onClick={connectWallet}>
-              {walletAddress.length > 0 ? (
-                <>
-                  Connected: {walletAddress.substring(0, 6)}...
-                  {walletAddress.substring(38)}
-                </>
-              ) : (
-                <span>Connect Wallet</span>
-              )}
-            </button>
-          </div>
-
-          <NavBar />
           <ToastContainer />
+          <NavBar connectWallet={connectWallet} walletAddress={walletAddress} />
           <Routes>
             <Route path="/home" element={<HomePage />} />
             <Route path="/" element={<LoginPage />} />
