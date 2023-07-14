@@ -29,7 +29,7 @@ const NavBar = ({ connectWallet, walletAddress }) => {
           <>
             <CreatePoll />
             <li>
-              <button
+              <Link
                 id="walletButton"
                 className="connect-wallet-button"
                 onClick={connectWallet}
@@ -42,7 +42,7 @@ const NavBar = ({ connectWallet, walletAddress }) => {
                 ) : (
                   <span>Connect Wallet</span>
                 )}
-              </button>
+              </Link>
             </li>
             <li>
               <Link to="/home" className="home-button" onClick={() => navigate("/login")}>

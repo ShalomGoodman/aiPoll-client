@@ -1,27 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 .navbar-list {
   list-style-type: none;
   margin: 0;
   padding: 10px;
-
-  background-color: #333; 
-
   overflow: hidden;
   opacity: 92%;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
   top: 0;
   width: 100%;
+  border-bottom: 2px solid #ffffff4f;
 }
 
-.navbar-list li {
-  display: flex;
-  align-items: center;
-}
 
 .navbar-list li a {
   display: block;
@@ -32,48 +22,6 @@
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   transition: background-color 0.3s ease;
-}
+  border-bottom: 2px solid transparent; /* Add this line for the border underline */
 
-.navbar-list li a:hover {
-  background-color: #555;
-}
-
-.navbar-list li input[type="text"] {
-  margin: 0;
-  padding: 10px;
-}
-
-.navbar-list .menu-items {
-  display: flex;
-}
-
-.navbar-list .menu-items li {
-  margin-left: 15px;
-}
-
-.navbar-list a.docs.creator {
-  letter-spacing: normal;
-}
-
-.navbar-list li button {
-  display: block;
-  text-align: center;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-}
-
-.navbar-list .connect-wallet-button {
-  border-radius: 25px;
-}
-
-.navbar-list .home-button {
- border-radius: 25px;
-}
-
-.navbar-list .logout-button {
-  /* Styles for the Logout button */
 }

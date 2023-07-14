@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import base from '../../auth/baseURL';
+import { Link } from 'react-router-dom'; 
 
 function CreatePoll({ onPollCreated }) {
   const [showModal, setShowModal] = useState(false);
@@ -69,9 +70,9 @@ function CreatePoll({ onPollCreated }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleOpen}>
+      <Link variant="primary" onClick={handleOpen}>
         Create Poll
-      </Button>
+      </Link>
 
       {showModal && (
         <div className="modal-overlay">
