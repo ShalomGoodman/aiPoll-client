@@ -7,9 +7,6 @@ import Form from 'react-bootstrap/Form';
 import base from '../../auth/baseURL';
 import { tokenTransfer, erc20contract } from '../../interfaces/ERC20Interface';
 
-
-
-
 function CreatePoll({ onPollCreated }) {
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState('');
@@ -19,18 +16,19 @@ function CreatePoll({ onPollCreated }) {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [transfer, setTransfer] = useState({});
-  function addSmartContractListener() { 
+  const [tokenPrice, setTokenPrice] = useState(0);
+
+  function addSmartContractListener() {
     erc20contract.on('Transfer', (message, _to, _value) => {
       console.log(message, _to, _value);
-      // setTransfer(data); 
-
-    })
+      // setTransfer(data);
+    });
   }
 
-  useEffect (() => {
-    addSmartContractListener()
-  }, [])
-    
+  useEffect(() => {
+    addSmartContractListener();
+  }, []);
+
   const handleOpen = () => {
     setShowModal(true);
   };
@@ -53,14 +51,24 @@ function CreatePoll({ onPollCreated }) {
 
   const handleDaysChange = (e) => {
     setDays(parseInt(e.target.value));
+    updateTokenPrice(parseInt(e.target.value), hours, minutes);
   };
 
   const handleHoursChange = (e) => {
     setHours(parseInt(e.target.value));
+    updateTokenPrice(days, parseInt(e.target.value), minutes);
   };
 
   const handleMinutesChange = (e) => {
     setMinutes(parseInt(e.target.value));
+    updateTokenPrice(days, hours, parseInt(e.target.value));
+  };
+
+  const updateTokenPrice = (selectedDays, selectedHours, selectedMinutes) => {
+    const totalHours = selectedDays * 24 + selectedHours;
+    const tokenPerHour = 1; // Number of tokens per hour
+    const tokenAmount = totalHours * tokenPerHour;
+    setTokenPrice(tokenAmount);
   };
 
   const handleSubmit = async (e) => {
@@ -69,9 +77,9 @@ function CreatePoll({ onPollCreated }) {
     // Get user's Metamask address
     const userAddress = '0xfc22954a701CfD0f59357FfA97044D78b21828ce';
   
-    // Set the token amount. Modify this as needed
-    const tokenAmount = 1 // Transfer 1 token
-    console.log(tokenAmount)
+    // Calculate the token amount based on the token price
+    const tokenAmount = tokenPrice;
+  
     // Try to make the transfer
     try {
       const transaction = await tokenTransfer(userAddress, tokenAmount);
@@ -89,13 +97,14 @@ function CreatePoll({ onPollCreated }) {
       console.error(err);
       return;
     }
+  
     try {
       // Convert duration to minutes
       const duration = days * 1440 + hours * 60 + minutes;
-
+  
       // Calculate the deadline datetime string
       const deadline = new Date(Date.now() + duration * 60 * 1000).toISOString();
-
+  
       const poll = {
         title: title,
         option_a_label: choiceA,
@@ -105,13 +114,13 @@ function CreatePoll({ onPollCreated }) {
       };
       
       const response = await base.post('/api/polls/', poll); // modify this path if it's not the correct endpoint
-
+  
       if(response.status === 200) { // Check if poll was successfully created
         onPollCreated(); // Call the function passed from the parent component
       }
-
+  
       handleClose();
-
+  
     } catch (error) {
       console.error(error);
       console.log(error.response.data); // Log the error response data
@@ -180,6 +189,11 @@ function CreatePoll({ onPollCreated }) {
                     <option value={6}>6 minutes</option>
                     <option value={7}>7 minutes</option>
                   </Form.Control>
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Label>Token Price:</Form.Label>
+                  <span>{tokenPrice} tokens</span>
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
