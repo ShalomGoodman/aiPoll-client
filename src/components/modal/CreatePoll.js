@@ -48,14 +48,9 @@ function CreatePoll({ onPollCreated }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      // Convert duration to minutes
       const duration = days * 1440 + hours * 60 + minutes;
-
-      // Calculate the deadline datetime string
       const deadline = new Date(Date.now() + duration * 60 * 1000).toISOString();
-
       const poll = {
         title: title,
         option_a_label: choiceA,
@@ -63,15 +58,9 @@ function CreatePoll({ onPollCreated }) {
         deadline: deadline,
         creator: localStorage.getItem('user_id'),
       };
-      
-      const response = await base.post('/api/polls/', poll); // modify this path if it's not the correct endpoint
-
-      if(response.status === 200) { // Check if poll was successfully created
-        onPollCreated(); // Call the function passed from the parent component
-      }
-
+      const response = await base.post('/api/polls/', poll);
+      if(response.status === 200) { onPollCreated() }
       handleClose();
-
     } catch (error) {
       console.error(error);
       console.log(error.response.data); // Log the error response data
@@ -145,7 +134,7 @@ function CreatePoll({ onPollCreated }) {
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
-                  Save changes
+                  10 ETH to Post Poll
                 </Button>
               </Form>
             </Modal.Body>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Poll from '../../components/Poll';
 import '../Home/homepage.css';
+import { ToastContainer, toast } from "react-toastify";
 
 function HomePage() {
   const [polls, setPolls] = useState([]);
@@ -45,6 +46,7 @@ function HomePage() {
           
         ))}
       </div>
+      <ToastContainer />
     </div>
   );
 }
