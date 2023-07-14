@@ -59,17 +59,7 @@ const NavBar = ({ connectWallet, walletAddress }) => {
             </li>
           </>
         ) : (
-          <>
-            <li>
-              <button onClick={() => navigate("/login")}>
-                Login
-              </button>
-            </li>
-            <li>
-              <button onClick={() => navigate("/signup")}>
-                Signup
-              </button>
-            </li>
+          <> 
           </>
         )}
       </ul>
