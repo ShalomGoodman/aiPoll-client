@@ -10,9 +10,7 @@ import { AuthProvider } from './auth/AuthContextComponent';
 import { ConnectWallet, getCurrentWalletConnected } from './util/walletConnection';
 
 function App() {
-
   const [walletAddress, setWallet] = useState("");
-
   const [walletStatus, setWalletStatus] = useState("");
 
   const connectWallet = async () => {
@@ -34,23 +32,7 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="App">
-
-        
-          <div id="container">
-            <button id="walletButton" onClick={connectWallet}>
-              {walletAddress.length > 0 ? (
-                <>
-                  Connected: {walletAddress.substring(0, 6)}...
-                  {walletAddress.substring(38)}
-                </>
-              ) : (
-                <span>Connect Wallet</span>
-              )}
-            </button>
-          </div>
-
-          <NavBar />
-
+          <NavBar connectWallet={connectWallet} walletAddress={walletAddress} />
           <Routes>
             <Route path="/home" element={<HomePage />} />
             <Route path="/" element={<LoginPage />} />
