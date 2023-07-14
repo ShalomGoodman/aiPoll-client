@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CreatePoll from '../../components/modal/CreatePoll';
 import Poll from '../../components/Poll';
 import '../Home/homepage.css';
 
@@ -38,7 +37,6 @@ function HomePage() {
   return (
     <div className="home-page">
       <h1>Home</h1>
-      <CreatePoll onPollCreated={handlePollCreated} /> {/* Pass the function as a prop to CreatePoll */}
       <div className="polls-container">
         {polls.map(poll => (
           <div key={poll.id} className="poll-container">

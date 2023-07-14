@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import base from '../../auth/baseURL';
-import validToken from '../../auth/validToken'  // import the axios instance you have created
 
 function CreatePoll({ onPollCreated }) {
   const [showModal, setShowModal] = useState(false);
@@ -48,7 +47,6 @@ function CreatePoll({ onPollCreated }) {
   };
 
   const handleSubmit = async (e) => {
-    console.log("Form Submitted");  // Add this line to check if the function is being called
     e.preventDefault();
 
     try {
@@ -65,8 +63,6 @@ function CreatePoll({ onPollCreated }) {
         deadline: deadline,
         creator: localStorage.getItem('user_id'),
       };
-      
-      console.log("Creator: ", poll.creator);
       
       const response = await base.post('/api/polls/', poll); // modify this path if it's not the correct endpoint
 
@@ -85,14 +81,14 @@ function CreatePoll({ onPollCreated }) {
   return (
     <>
       <Button variant="primary" onClick={handleOpen}>
-        Open Modal
+        POLL IT!
       </Button>
 
       {showModal && (
         <div className="modal-overlay">
           <Modal show={showModal} onHide={handleClose} centered>
             <Modal.Header closeButton>
-              <Modal.Title>Create Poll</Modal.Title>
+              <Modal.Title>Create a Poll</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
@@ -118,19 +114,33 @@ function CreatePoll({ onPollCreated }) {
                     <option value={0}>0 days</option>
                     <option value={1}>1 day</option>
                     <option value={2}>2 days</option>
-                    {/* Add more options for days */}
+                    <option value={3}>3 days</option>
+                    <option value={4}>4 days</option>
+                    <option value={5}>5 days</option>
+                    <option value={6}>6 days</option>
+                    <option value={7}>7 days</option>
                   </Form.Control>
                   <Form.Control as="select" value={hours} onChange={handleHoursChange}>
                     <option value={0}>0 hours</option>
                     <option value={1}>1 hour</option>
                     <option value={2}>2 hours</option>
+                    <option value={3}>3 hours</option>
+                    <option value={4}>4 hour</option>
+                    <option value={5}>5 hours</option>
+                    <option value={6}>6 hours</option>
+                    <option value={7}>7 hours</option>
+                    <option value={8}>8 hours</option>
+                    <option value={9}>9 hours</option>
+                    <option value={10}>10 hours</option>
+                    <option value={11}>11 hours</option>
+                    <option value={12}>12 hours</option>
                     {/* Add more options for hours */}
                   </Form.Control>
                   <Form.Control as="select" value={minutes} onChange={handleMinutesChange}>
                     <option value={0}>0 minutes</option>
                     <option value={15}>15 minutes</option>
                     <option value={30}>30 minutes</option>
-                    {/* Add more options for minutes */}
+                    <option value={45}>45 minutes</option>
                   </Form.Control>
                 </Form.Group>
 
