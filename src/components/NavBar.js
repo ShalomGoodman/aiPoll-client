@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
-
-const NavBar = ({ onModalToggle }) => {
+import './navbar.css';
+import CreatePoll from './modal/CreatePoll';
+const NavBar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -14,8 +15,11 @@ const NavBar = ({ onModalToggle }) => {
 
   return (
     <nav>
+         <ul className="navbar-list">
       {isLoggedIn 
       ? <>
+        <CreatePoll />
+        <Link to="/home" onClick={() => navigate("/login")}>Home</Link>
           <button 
             style={{ 
               padding: '10px', 
@@ -27,23 +31,13 @@ const NavBar = ({ onModalToggle }) => {
           >
             Log out
           </button>
-          <button 
-            style={{ 
-              padding: '10px', 
-              borderRadius: '10px', 
-              backgroundColor: 'white', 
-              color: 'black' 
-            }} 
-            onClick={onModalToggle}
-          >
-            Create Poll
-          </button>
         </>
       : <>
           <button onClick={() => navigate("/login")}>Login</button>
           <button onClick={() => navigate("/signup")}>Signup</button>
         </>
       }
+    </ul>
     </nav>
   );
 };

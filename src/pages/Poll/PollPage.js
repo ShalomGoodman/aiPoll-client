@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import classnames from 'classnames';
 import './pollpage.css'; // Import the CSS file
 import { useParams } from 'react-router-dom';
 import base from '../../auth/baseURL';
@@ -8,8 +7,8 @@ import Chatbox from '../../components/Chatbox';
 
 const PollPage = () => {
   const { id } = useParams();
-
   const [pollData, setPollData] = useState(null);
+  const [userVoted, setUserVoted] = useState(false);
 
   useEffect(() => {
     const fetchPollData = async () => {
@@ -21,58 +20,57 @@ const PollPage = () => {
       }
     };
 
+    const votedPolls = JSON.parse(localStorage.getItem('polls_voted')) || [];
+    setUserVoted(votedPolls.includes(id));
+
     fetchPollData();
-  }, [id]);
+  }, [id, userVoted]);
 
   const futureTimeDifference = pollData ? getFutureTimeDifference(pollData.deadline) : null;
-  const prevTimeDifference = pollData ? getPrevTimeDifference(pollData.deadline) : null;
+  const prevTimeDifference = pollData ? getPrevTimeDifference(pollData.created) : null;
 
   const handleVote = async (option) => {
+    if (userVoted) return;
     try {
-      await base.post(`/api/polls/${id}/vote/`, { option: option.toLowerCase() });
+      await base.post(`/api/polls/${id}/vote/`, { option: option });
+      setUserVoted(true);
+      const votedPolls = JSON.parse(localStorage.getItem('polls_voted')) || [];
+      votedPolls.push(id);
+      localStorage.setItem('polls_voted', JSON.stringify(votedPolls));
       // Handle the response as needed
     } catch (error) {
       console.error('Error:', error);
     }
   };
 
-  const pollContainerClass = classnames('poll-container', {
-    'poll-closed': pollData && pollData.voting_status === 'closed'
-  });
-
   return (
-    <div className={pollContainerClass}>
+    <div>
       {pollData && (
         <>
-          <p className="poll-creator">@{pollData.user}</p>
-          <p className="poll-created">{prevTimeDifference}</p>
+          <p className="poll-creator">@{pollData.user} - {prevTimeDifference}</p>
           <h2 className="poll-title">{pollData.title}</h2>
-          <p className="poll-category">{pollData.category}</p>
-          <p className="poll-deadline">{futureTimeDifference}</p>
-
-          <div className="poll-form">
-            <div className="poll-choice">
-              <div
-                onClick={() => handleVote('A')}
-                className={classnames('poll-option-label', { 'poll-closed': pollData.voting_status === 'closed' })}
-              >
-                {pollData.option_a_label}
+          { userVoted || pollData.voting_status == 'closed' ? (
+            <div className="poll-results">
+              <div className="poll-result">
+                <div className="poll-result-label" style={{ width: `${pollData.percentages[0]}%` }}>{pollData.option_a_label} - {pollData.percentages[0]}%</div>
               </div>
-              <p className="poll-votes">Votes: {pollData.option_a_votes}</p>
-            </div>
-
-            <div className="poll-choice">
-              <div
-                onClick={() => handleVote('B')}
-                className={classnames('poll-option-label', { 'poll-closed': pollData.voting_status === 'closed' })}
-              >
-                {pollData.option_b_label}
+              <div className="poll-result">
+                <div className="poll-result-label" style={{ width: `${pollData.percentages[1]}%` }}>{pollData.option_b_label} - {pollData.percentages[1]}%</div>
               </div>
-              <p className="poll-votes">Votes: {pollData.option_b_votes}</p>
             </div>
-          </div>
-
-          {pollData.chatbox && <Chatbox chatbox_id={pollData.chatbox} />}
+          ) : <div>
+                <div className="poll-form">
+                  <div className="poll-choice">
+                    <div onClick={() => handleVote("a")} >{pollData.option_a_label}</div>
+                  </div>
+                  <div className="poll-choice">
+                    <div onClick={() => handleVote("b")} >{pollData.option_b_label}</div>
+                  </div>
+                </div> 
+              </div>
+          }
+          <p className="poll-deadline">{pollData.total_votes} votes - {futureTimeDifference}</p>
+          <Chatbox chatbox_id={pollData.chatbox} />
         </>
       )}
     </div>

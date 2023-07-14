@@ -1,107 +1,108 @@
 /* LoginPage.css */
 
-  .sign-in {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(238 231 180 / 23%);
-    /* Add any other background styles you want */
-  }
-  
-  .sign-in img {
-    width: auto;
-    height: auto;
-    margin-bottom: 10px;
-    margin-top: -20px;
-  }
-  
-  .sign-in form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .sign-in label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
+.sign-in {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Add any other background styles you want */
+}
 
-  .sign-in input {
-  line-height: 28px;
- border: 2px solid transparent;
- border-bottom-color: #8fa0a0;
- padding: .2rem 0;
- outline: none;
- background-color: transparent;
- color: #28272c;
- transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  }
+.sign-in img {
+  width: auto;
+  height: auto;
+  margin-bottom: 53px;
+  margin-top: -20px;
+ 
+}
 
-   .sign-in input::placeholder {
-    color: #777;
-   }
-   
-   .sign-in input:focus::placeholder {
-    opacity: 0;
-    transition: opacity .3s;
-   }
-   
-  
-  .sign-in button {
-    width: 103px;
-    height: 40px;
-    background-color: #70ada7;
-    color: #fff;
-    border: none;
-    border-radius: 5em;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .sign-in button:hover {
-    background-color: #147b71;
-  }
-  
- .sign-in .goTo {
-    color: white;
-    padding: 5px;
-    border-radius: 2px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .sign-in .link {
-    color: blue;
-    text-decoration: none;
-  }
-  
-  .sign-in .redirect {
-    color: white;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+.sign-in form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-  .sign-in .goTo {
-    color: rgb(19 13 13);
-    font-size: 12px;
-    padding: 5px;
-  }
-    /* background: rgba(193, 160, 160, 0.5); black background with 60% opacity */
-     /* Add padding for better visibility */
-    
-  .sign-in .link{
-    color:#0b8d1f;
-    font-weight: bold;
-  }
+.sign-in label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.sign-in input {
+line-height: 28px;
+border: 2px solid transparent;
+border-bottom-color: #8fa0a0;
+padding: .2rem 0;
+outline: none;
+background-color: transparent;
+color: #E0E1DD;
+transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+ .sign-in input::placeholder {
+  color: #E0E1DD;
+  font-size: 12px;
+ }
+ 
+ .sign-in input:focus::placeholder {
+  opacity: 0;
+  transition: opacity .3s;
+ }
+ 
+
+.sign-in button {
+  width: 100px;
+  height: 50px;
+  background-color: #415a77;
+  color: #E0E1DD;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sign-in button:hover {
+  background-color: #486687;
+}
+
+.sign-in .goTo {
+  color: white;
+  padding: 5px;
+  border-radius: 2px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sign-in .link {
+  color: blue;
+  text-decoration: none;
+}
+
+.sign-in .redirect {
+  color: white;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sign-in .goTo {
+  color: #E0E1DD;
+  font-size: 12px;
+  padding: 5px;
+}
+  /* background: rgba(193, 160, 160, 0.5); black background with 60% opacity */
+   /* Add padding for better visibility */
   
-  
-  .sign-in .redirect a:hover {
-  text-decoration: underline;
-  }
+.sign-in .link{
+  color:#0b8d1f;
+  font-weight: bold;
+}
+
+
+.sign-in .redirect a:hover {
+text-decoration: underline;
+}

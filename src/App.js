@@ -10,13 +10,10 @@ import { AuthProvider } from './auth/AuthContextComponent';
 import { ConnectWallet, getCurrentWalletConnected } from './util/walletConnection';
 
 function App() {
-  const [walletAddress, setWallet] = useState("");
-  const [showModal, setShowModal] = useState(false);
-  const [walletStatus, setWalletStatus] = useState("");
 
-  const handleModalToggle = () => {
-    setShowModal(!showModal);
-  };
+  const [walletAddress, setWallet] = useState("");
+
+  const [walletStatus, setWalletStatus] = useState("");
 
   const connectWallet = async () => {
     const walletResponse = await ConnectWallet();
@@ -37,7 +34,8 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="App">
-          {showModal && <Modal />}
+
+        
           <div id="container">
             <button id="walletButton" onClick={connectWallet}>
               {walletAddress.length > 0 ? (
@@ -50,12 +48,15 @@ function App() {
               )}
             </button>
           </div>
+
+          <NavBar />
+
           <Routes>
-            <Route path="/home" element={<><NavBar onModalToggle={handleModalToggle} /><HomePage /></>} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/" element={<LoginPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-            <Route path="/poll/:id" element={<><NavBar onModalToggle={handleModalToggle} /><PollPage /></>} />
+            <Route path="/poll/:id" element={<PollPage />} />
           </Routes>
         </div>
       </Router>

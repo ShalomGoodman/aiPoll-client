@@ -1,0 +1,72 @@
+/* styles/Navbar.css */
+
+/* Import Google Font - Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.navbar-list {
+  list-style-type: none;
+  margin: 0px;
+  padding: 10px;
+  overflow: hidden;
+  background-color: #ffcb3d;
+  opacity: 92%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* align items vertically */
+  /* make it sticky */
+  width: 100%;
+}
+
+.navbar-list li {
+  display: flex;
+  align-items: center; /* center the content of each li vertically */
+}
+
+.navbar-list li a {
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 36px;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.navbar-list li a:hover {
+  background-color: #8CC63F;
+}
+
+.navbar-list li input[type="text"] {
+  margin: 0px;
+  padding: 13px;
+}
+
+.navbar-list .menu-items {
+  display: flex;
+}
+
+.navbar-list .menu-items li {
+  margin-left: 15px;
+}
+
+.navbar-list a.docs.creator {
+  letter-spacing: normal;
+}
+
+/* Add a style for the sign out button */
+.navbar-list li button {
+  display: block;
+  background-color: #8CC63F; /* give it a distinct color */
+  color: #ffffff; /* white text */
+  text-align: center;
+  padding: 10px 10px; /* smaller padding */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.navbar-list li button:hover {
+  background-color: #6ea32c; /* slightly darker green on hover */
+}

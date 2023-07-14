@@ -37,4 +37,13 @@
     font-size: 14px;
   }
 
-  
+  .poll-creator {
+    color: black;
+  }
+
+  .poll-result-label {
+    display: block;
+    height: 100%;
+    background-color: #1da1f2;
+    white-space: nowrap;
+  }
