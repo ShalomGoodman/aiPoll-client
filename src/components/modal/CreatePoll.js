@@ -17,6 +17,9 @@ function CreatePoll({ onPollCreated }) {
   const [minutes, setMinutes] = useState(0);
   const [transfer, setTransfer] = useState({});
   const [tokenPrice, setTokenPrice] = useState(0);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function addSmartContractListener() {
     erc20contract.on('Transfer', (message, _to, _value) => {
@@ -73,38 +76,44 @@ function CreatePoll({ onPollCreated }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
+    setLoading(true); // Set loading state to true
+
     // Get user's Metamask address
     const userAddress = '0xfc22954a701CfD0f59357FfA97044D78b21828ce';
-  
+
     // Calculate the token amount based on the token price
     const tokenAmount = tokenPrice;
-  
+
     // Try to make the transfer
     try {
       const transaction = await tokenTransfer(userAddress, tokenAmount);
-  
+
       // Wait for the transaction to finish
       const result = await transaction.wait();
-  
-      if(result.status !== 1) { // Check if transaction was successful
+
+      if (result.status !== 1) { // Check if transaction was successful
         console.error("Token transfer failed.");
+        setSubmitError(true);
+        setLoading(false); // Set loading state to false
         return;
       }
-  
+
       console.log("Token transfer successful!");
     } catch (err) {
       console.error(err);
+      setSubmitError(true);
+      setLoading(false); // Set loading state to false
       return;
     }
-  
+
     try {
       // Convert duration to minutes
       const duration = days * 1440 + hours * 60 + minutes;
-  
+
       // Calculate the deadline datetime string
       const deadline = new Date(Date.now() + duration * 60 * 1000).toISOString();
-  
+
       const poll = {
         title: title,
         option_a_label: choiceA,
@@ -112,17 +121,23 @@ function CreatePoll({ onPollCreated }) {
         deadline: deadline,
         creator: localStorage.getItem('user_id'),
       };
-      
+
       const response = await base.post('/api/polls/', poll); // modify this path if it's not the correct endpoint
-  
-      if(response.status === 200) { // Check if poll was successfully created
+
+      if (response.status === 200) { // Check if poll was successfully created
+        setSubmitSuccess(true);
         onPollCreated(); // Call the function passed from the parent component
+      } else {
+        setSubmitError(true);
       }
-  
+
+      setLoading(false); // Set loading state to false
       handleClose();
-  
+
     } catch (error) {
       console.error(error);
+      setSubmitError(true);
+      setLoading(false); // Set loading state to false
       console.log(error.response.data); // Log the error response data
     }
   }
@@ -196,9 +211,12 @@ function CreatePoll({ onPollCreated }) {
                   <span>{tokenPrice} tokens</span>
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                  Submit
+                <Button variant="primary" type="submit" disabled={loading}>
+                  {loading ? "Loading..." : "Submit"}
                 </Button>
+
+                {submitSuccess && <p>Submit successful!</p>}
+                {submitError && <p>Submit failed. Please try again.</p>}
               </Form>
             </Modal.Body>
           </Modal>
