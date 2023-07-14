@@ -1,10 +1,25 @@
 .comment-container {
-    margin: 10px;
-    padding: 10px;
-    background-color: #f0f0f0;
-  }
-  
-  .comment-container p {
-    margin-bottom: 5px;
-  }
-  
+  margin: 10px;
+  padding: 10px;
+  background-color: #d6b667ba
+}
+
+.comment-container p {
+  margin-bottom: 5px;
+}
+
+.chatbox-refresh button {
+width: 100px;
+height: 50px;
+}
+
+button {
+  border-radius: 34px;
+  background-color: #415a77;
+  color: #E0E1DD;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
