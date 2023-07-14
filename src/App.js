@@ -14,6 +14,7 @@ import '../node_modules/react-toastify/dist/ReactToastify.css'
 function App() {
   const [walletAddress, setWallet] = useState("");
   const [walletStatus, setWalletStatus] = useState("");
+  const isLoggedIn = localStorage.getItem('isLoggedIn')
 
   const connectWallet = async () => {
     const walletResponse = await ConnectWallet();
@@ -35,7 +36,10 @@ function App() {
       <Router>
         <div className="App">
           <ToastContainer />
-          <NavBar connectWallet={connectWallet} walletAddress={walletAddress} />
+          {isLoggedIn ? (
+            <NavBar connectWallet={connectWallet} walletAddress={walletAddress} />
+          ) : null}
+
           <Routes>
             <Route path="/home" element={<HomePage />} />
             <Route path="/" element={<LoginPage />} />
