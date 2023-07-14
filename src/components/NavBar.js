@@ -10,16 +10,16 @@ const NavBar = ({ connectWallet, walletAddress }) => {
   const isLoginPage = location.pathname === '/login';
 
   const handleLogout = () => {
-    localStorage.setItem("isLoggedIn", false); // set isLoggedIn to false
-    localStorage.removeItem("token"); // remove the token
+    localStorage.setItem("isLoggedIn", false);
+    localStorage.removeItem("token");
     navigate("/login");
     toast.success("Logged out successfully!", { autoClose: 1500 });
   };
 
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === "true"; // get isLoggedIn from local storage
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === "true";
 
   if (isLoginPage) {
-    return null; // Don't render the navbar on the login page
+    return null;
   }
 
   return (
@@ -29,7 +29,7 @@ const NavBar = ({ connectWallet, walletAddress }) => {
           <>
             <CreatePoll />
             <li>
-              <Link
+              <button
                 id="walletButton"
                 className="connect-wallet-button"
                 onClick={connectWallet}
@@ -42,12 +42,15 @@ const NavBar = ({ connectWallet, walletAddress }) => {
                 ) : (
                   <span>Connect Wallet</span>
                 )}
-              </Link>
+              </button>
             </li>
             <li>
-              <Link to="/home" className="home-button" onClick={() => navigate("/login")}>
+              <button
+                className="home-button"
+                onClick={() => navigate("/home")}
+              >
                 Home
-              </Link>
+              </button>
             </li>
             <li>
               <button
