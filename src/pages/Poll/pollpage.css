@@ -60,3 +60,16 @@ background: rgba(242, 207, 82, 0.44);
   color: #182D45;
   
 }
+
+.vote-container {
+  width: 650px;
+  padding: 20px;
+  background-color: #a9bdd1b3;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+  margin: 95px auto;
+}
+
