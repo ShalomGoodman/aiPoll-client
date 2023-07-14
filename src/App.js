@@ -5,7 +5,6 @@ import HomePage from './pages/Home/HomePage';
 import LoginPage from './pages/Login/LoginPage';
 import SignupPage from './pages/Signup/SignupPage';
 import PollPage from './pages/Poll/PollPage';
-import Modal from './components/modal/CreatePoll';
 import { AuthProvider } from './auth/AuthContextComponent';
 import { ConnectWallet, getCurrentWalletConnected } from './util/walletConnection';
 import { ToastContainer, toast } from "react-toastify";
@@ -39,7 +38,6 @@ function App() {
           {isLoggedIn ? (
             <NavBar connectWallet={connectWallet} walletAddress={walletAddress} />
           ) : null}
-
           <Routes>
             <Route path="/home" element={<HomePage />} />
             <Route path="/" element={<LoginPage />} />
