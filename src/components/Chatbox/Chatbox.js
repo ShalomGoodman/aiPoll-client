@@ -42,7 +42,7 @@ function Chatbox({ chatbox_id }) {
     <div className="chatbox">
       <div className="chatbox-header">
         <h3>Chatbox</h3>
-        <button className="chatbox-refresh" onClick={fetchChatbox}>Refresh</button>
+        <button onClick={fetchChatbox}>Refresh</button>
       </div>
       <div className="chatbox-comments">
         {comments.map((comment) => (
