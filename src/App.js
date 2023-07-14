@@ -5,15 +5,15 @@ import HomePage from './pages/Home/HomePage';
 import LoginPage from './pages/Login/LoginPage';
 import SignupPage from './pages/Signup/SignupPage';
 import PollPage from './pages/Poll/PollPage';
-import Modal from './components/modal/CreatePoll';
 import { AuthProvider } from './auth/AuthContextComponent';
 import { ConnectWallet, getCurrentWalletConnected } from './util/walletConnection';
+import { ToastContainer, toast } from "react-toastify";
+import '../node_modules/react-toastify/dist/ReactToastify.css'
 
 function App() {
-
   const [walletAddress, setWallet] = useState("");
-
   const [walletStatus, setWalletStatus] = useState("");
+  const isLoggedIn = localStorage.getItem('isLoggedIn')
 
   const connectWallet = async () => {
     const walletResponse = await ConnectWallet();
@@ -34,23 +34,10 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="App">
-
-        
-          <div id="container">
-            <button id="walletButton" onClick={connectWallet}>
-              {walletAddress.length > 0 ? (
-                <>
-                  Connected: {walletAddress.substring(0, 6)}...
-                  {walletAddress.substring(38)}
-                </>
-              ) : (
-                <span>Connect Wallet</span>
-              )}
-            </button>
-          </div>
-
-          <NavBar />
-
+          <ToastContainer />
+          {isLoggedIn ? (
+            <NavBar connectWallet={connectWallet} walletAddress={walletAddress} />
+          ) : null}
           <Routes>
             <Route path="/home" element={<HomePage />} />
             <Route path="/" element={<LoginPage />} />

@@ -4,8 +4,18 @@ import "./loginpage.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from '../../assets/GOLD.png';
+import { ToastContainer, toast } from "react-toastify";
 
 function LoginPage() {
+
+  const notifySuccess = () => {
+    toast.success("Signed in Successfully!");
+  };
+
+  const notifyError = () => {
+    toast.error("Username or Password is incorrect!");
+  };
+
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -35,10 +45,13 @@ function LoginPage() {
         setPassword("");
         localStorage.setItem("isLoggedIn", true);
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("user_id", response.data.user_id); // Save the token in local storage
+
+        localStorage.setItem("user_id", response.data.user_id);
         navigate("/home");
+        notifySuccess();
       }
     } catch (error) {
+      notifyError();
       console.error(error);
     }
   };
@@ -52,6 +65,7 @@ function LoginPage() {
           <input
             type="text"
             placeholder="Username..."
+            autoComplete="username"
             value={username}
             onChange={handleUsernameChange}
           />
@@ -61,6 +75,7 @@ function LoginPage() {
           <input
             type="password"
             placeholder="Password..."
+            autoComplete="current-password"
             value={password}
             onChange={handlePasswordChange}
           />

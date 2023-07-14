@@ -1,5 +1,3 @@
-/* LoginPage.css */
-
 .sign-in {
   text-align: center;
   margin: 0;
@@ -9,7 +7,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* Add any other background styles you want */
 }
 
 .sign-in img {
@@ -94,14 +91,11 @@ transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
   font-size: 12px;
   padding: 5px;
 }
-  /* background: rgba(193, 160, 160, 0.5); black background with 60% opacity */
-   /* Add padding for better visibility */
-  
+
 .sign-in .link{
   color:#0b8d1f;
   font-weight: bold;
 }
-
 
 .sign-in .redirect a:hover {
 text-decoration: underline;

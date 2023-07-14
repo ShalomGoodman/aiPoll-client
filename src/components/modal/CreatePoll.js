@@ -6,6 +6,8 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import base from '../../auth/baseURL';
 import { tokenTransfer, erc20contract } from '../../interfaces/ERC20Interface';
+import { Link } from 'react-router-dom'; 
+
 
 function CreatePoll({ onPollCreated }) {
   const [showModal, setShowModal] = useState(false);
@@ -107,13 +109,10 @@ function CreatePoll({ onPollCreated }) {
       return;
     }
 
+
     try {
-      // Convert duration to minutes
       const duration = days * 1440 + hours * 60 + minutes;
-
-      // Calculate the deadline datetime string
       const deadline = new Date(Date.now() + duration * 60 * 1000).toISOString();
-
       const poll = {
         title: title,
         option_a_label: choiceA,
@@ -132,8 +131,8 @@ function CreatePoll({ onPollCreated }) {
       }
 
       setLoading(false); // Set loading state to false
-      handleClose();
 
+      handleClose();
     } catch (error) {
       console.error(error);
       setSubmitError(true);
@@ -144,15 +143,15 @@ function CreatePoll({ onPollCreated }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleOpen}>
-        POLL IT!
-      </Button>
+      <Link variant="primary" onClick={handleOpen}>
+        Create Poll
+      </Link>
 
       {showModal && (
         <div className="modal-overlay">
           <Modal show={showModal} onHide={handleClose} centered>
             <Modal.Header closeButton>
-              <Modal.Title>Create a Poll</Modal.Title>
+              <Modal.Title>New Poll</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
@@ -213,6 +212,8 @@ function CreatePoll({ onPollCreated }) {
 
                 <Button variant="primary" type="submit" disabled={loading}>
                   {loading ? "Loading..." : "Submit"}
+                <Button variant="primary" type="submit">
+                  10 ETH to Post Poll
                 </Button>
 
                 {submitSuccess && <p>Submit successful!</p>}

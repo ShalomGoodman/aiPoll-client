@@ -30,6 +30,7 @@ export async function signup(username, password, metamask_wallet_address) {
 }
 export function logout() {
   localStorage.removeItem(LOCALSTORAGE_KEY);
+  localStorage.removeItem(USERNAME);
 }
 
 
