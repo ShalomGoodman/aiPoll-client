@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { parseUnits, formatUnits } from 'ethers';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import base from '../../auth/baseURL';
+import { tokenTransfer, erc20contract } from '../../interfaces/ERC20Interface';
+
+
+
 
 function CreatePoll({ onPollCreated }) {
   const [showModal, setShowModal] = useState(false);
@@ -13,7 +18,19 @@ function CreatePoll({ onPollCreated }) {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
+  const [transfer, setTransfer] = useState({});
+  function addSmartContractListener() { 
+    erc20contract.on('Transfer', (message, _to, _value) => {
+      console.log(message, _to, _value);
+      // setTransfer(data); 
 
+    })
+  }
+
+  useEffect (() => {
+    addSmartContractListener()
+  }, [])
+    
   const handleOpen = () => {
     setShowModal(true);
   };
@@ -48,7 +65,30 @@ function CreatePoll({ onPollCreated }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    // Get user's Metamask address
+    const userAddress = '0xfc22954a701CfD0f59357FfA97044D78b21828ce';
+  
+    // Set the token amount. Modify this as needed
+    const tokenAmount = 1 // Transfer 1 token
+    console.log(tokenAmount)
+    // Try to make the transfer
+    try {
+      const transaction = await tokenTransfer(userAddress, tokenAmount);
+  
+      // Wait for the transaction to finish
+      const result = await transaction.wait();
+  
+      if(result.status !== 1) { // Check if transaction was successful
+        console.error("Token transfer failed.");
+        return;
+      }
+  
+      console.log("Token transfer successful!");
+    } catch (err) {
+      console.error(err);
+      return;
+    }
     try {
       // Convert duration to minutes
       const duration = days * 1440 + hours * 60 + minutes;
@@ -125,36 +165,28 @@ function CreatePoll({ onPollCreated }) {
                     <option value={1}>1 hour</option>
                     <option value={2}>2 hours</option>
                     <option value={3}>3 hours</option>
-                    <option value={4}>4 hour</option>
+                    <option value={4}>4 hours</option>
                     <option value={5}>5 hours</option>
                     <option value={6}>6 hours</option>
                     <option value={7}>7 hours</option>
-                    <option value={8}>8 hours</option>
-                    <option value={9}>9 hours</option>
-                    <option value={10}>10 hours</option>
-                    <option value={11}>11 hours</option>
-                    <option value={12}>12 hours</option>
-                    {/* Add more options for hours */}
                   </Form.Control>
                   <Form.Control as="select" value={minutes} onChange={handleMinutesChange}>
                     <option value={0}>0 minutes</option>
-                    <option value={15}>15 minutes</option>
-                    <option value={30}>30 minutes</option>
-                    <option value={45}>45 minutes</option>
+                    <option value={1}>1 minute</option>
+                    <option value={2}>2 minutes</option>
+                    <option value={3}>3 minutes</option>
+                    <option value={4}>4 minutes</option>
+                    <option value={5}>5 minutes</option>
+                    <option value={6}>6 minutes</option>
+                    <option value={7}>7 minutes</option>
                   </Form.Control>
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
-                  Save changes
+                  Submit
                 </Button>
               </Form>
             </Modal.Body>
-
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-            </Modal.Footer>
           </Modal>
         </div>
       )}
