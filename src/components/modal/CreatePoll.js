@@ -7,6 +7,8 @@ import Form from 'react-bootstrap/Form';
 import base from '../../auth/baseURL';
 import { tokenTransfer, erc20contract } from '../../interfaces/ERC20Interface';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CreatePoll({ onPollCreated }) {
   const [showModal, setShowModal] = useState(false);
@@ -75,7 +77,7 @@ function CreatePoll({ onPollCreated }) {
     const tokenAmount = totalMinutes * tokenPerMinute;
     setTokenPrice(tokenAmount);
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -115,7 +117,6 @@ function CreatePoll({ onPollCreated }) {
       return;
     }
 
-
     try {
       const duration = days * 1440 + hours * 60 + minutes;
       const deadline = new Date(Date.now() + duration * 60 * 1000).toISOString();
@@ -132,6 +133,7 @@ function CreatePoll({ onPollCreated }) {
       if (response.status === 200) { // Check if poll was successfully created
         setSubmitSuccess(true);
         onPollCreated(); // Call the function passed from the parent component
+        toast.success("Transaction successful. Poll created!"); // Display success toast notification
       } else {
         setSubmitError(true);
       }
@@ -220,17 +222,22 @@ function CreatePoll({ onPollCreated }) {
 
                 {formError && <p>All fields are required.</p>}
 
-                
                 <Button variant="primary" type="submit" disabled={loading || isSubmitDisabled}>
-              {loading ? "Transaction in Progress" : "Submit"}
-              </Button>
-                {submitSuccess && <p>Submit successful!</p>}
+                  {loading ? (
+                    <div className="spinner-border spinner-border-sm" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                  ) : (
+                    "Submit"
+                  )}
+                </Button>
                 {submitError && <p>Submit failed. Please try again.</p>}
               </Form>
             </Modal.Body>
           </Modal>
         </div>
       )}
+      <ToastContainer />
     </>
   );
 }
