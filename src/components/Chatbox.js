@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Comment from '../components/Comment';
 import base from '../auth/baseURL';
+import { FaPaperPlane,  FaSync } from 'react-icons/fa';
 
 function Chatbox({ chatbox_id }) {
   const [comments, setComments] = useState([]);
@@ -42,7 +43,12 @@ function Chatbox({ chatbox_id }) {
     <div className="chatbox">
       <div className="chatbox-header">
         <h3>Chatbox</h3>
-        <button onClick={fetchChatbox}>Refresh</button>
+        <div className='submit-cotainer'>
+        <button className="refresh-button" 
+        onClick={fetchChatbox}>
+          <FaSync/>
+          </button>
+          </div>
       </div>
       <div className="chatbox-comments">
         {comments.map((comment) => (
@@ -50,12 +56,22 @@ function Chatbox({ chatbox_id }) {
         ))}
       </div>
       <form onSubmit={handleSubmit}>
-        <div>
-          <textarea onChange={handleCommentTextChange} value={commentText} required></textarea>
-        </div>
-        <button type="submit">Send</button>
-      </form>
+  <div>
+    <div className='submit-cotainer'>
+    <textarea
+    className="textarea" 
+      placeholder="Type here"
+      value={commentText}
+      onChange={handleCommentTextChange}
+      required
+    ></textarea>
+    <button className="submit-button">
+      <FaPaperPlane/>
+    </button>
     </div>
+    </div>
+</form>
+</div>
   );
 }
 

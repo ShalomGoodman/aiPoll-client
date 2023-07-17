@@ -10,6 +10,7 @@ const PollPage = () => {
   const { id } = useParams();
   const [pollData, setPollData] = useState(null);
   const [userVoted, setUserVoted] = useState(false);
+  const [highestVote, setHighestVote] = useState('');
 
   useEffect(() => {
     const fetchPollData = async () => {
@@ -26,6 +27,19 @@ const PollPage = () => {
 
     fetchPollData();
   }, [id, userVoted]);
+
+  useEffect(() => {
+    if (pollData) {
+      const maxPercentage = Math.max(...pollData.percentages);
+      const highestVoteIndex = pollData.percentages.indexOf(maxPercentage);
+
+      if (highestVoteIndex === 0) {
+        setHighestVote('a');
+      } else if (highestVoteIndex === 1) {
+        setHighestVote('b');
+      }
+    }
+  }, [pollData]);
 
   const futureTimeDifference = pollData ? getFutureTimeDifference(pollData.deadline) : null;
   const prevTimeDifference = pollData ? getPrevTimeDifference(pollData.created) : null;
@@ -52,13 +66,17 @@ const PollPage = () => {
         <>
           <p className="poll-creator">@{pollData.user} • {prevTimeDifference}</p>
           <h2 className="poll-title">{pollData.title}</h2>
-          { userVoted || pollData.voting_status == 'closed' ? (
+          { userVoted || pollData.voting_status === 'closed' ? (
             <div className="poll-results">
               <div className="poll-result">
-                <div className="poll-result-label" style={{ width: `${pollData.percentages[0]}%` }}>{pollData.option_a_label} ∙ {pollData.percentages[0]}%</div>
+                <div className={`poll-result-label-a ${
+                    highestVote === 'a' ? 'highest-vote' : ''
+                  }`} style={{ width: `${pollData.percentages[0]}%` }}>{pollData.option_a_label} ∙ {pollData.percentages[0]}%</div>
               </div>
               <div className="poll-result">
-                <div className="poll-result-label" style={{ width: `${pollData.percentages[1]}%` }}>{pollData.option_b_label} ∙ {pollData.percentages[1]}%</div>
+                <div className={`poll-result-label-b ${
+                    highestVote === 'b' ? 'highest-vote' : ''
+                  }`} style={{ width: `${pollData.percentages[1]}%` }}>{pollData.option_b_label} ∙ {pollData.percentages[1]}%</div>
               </div>
             </div>
           ) : <div>

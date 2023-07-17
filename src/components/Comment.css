@@ -1,7 +1,14 @@
 .comment-container {
   margin: 10px;
   padding: 10px;
-  background-color: #d6b667ba
+  background-color: #38546c12;
+  border-radius: 10px;
+}
+
+.comment-container:hover {
+  border: 1px solid #38546c66;
+  transform: scale(1.05);
+  background-color: #415a7769;
 }
 
 .comment-container p {
@@ -9,21 +16,87 @@
 }
 
 .chatbox-refresh button {
-width: 100px;
-height: 50px;
+  width: 100px;
+  height: 50px;
 }
 
-button {
+.submit-container {
+  /* text-align: right; */
+}
+
+.submit-button {
   border-radius: 34px;
-  background-color: #415a77;
-  color: #e0e1ddb8;
+  background-color: #0000;
+  color: #00000057;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   font-size: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: -4px;
+  padding: 6px;
+  float: right;
 }
 
-button:hover {
+.submit-button:hover {
   background-color: #f2cf525e;
+}
+
+.refresh-button {
+  border-radius: 34px;
+  background-color: #0000;
+  color: #00000057;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0px;
+  padding: 6px;
+  float: left;
+}
+
+.refresh-button:hover {
+  background-color: #f2cf525e;
+}
+.textarea {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #2d3d5c47;
+  box-shadow: 0 0 5px #2d3d5c47;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+
+
+/* Media Queries */
+
+@media screen and (max-width: 600px) {
+  /* Adjust styles for screens with a maximum width of 600px */
+  .comment-container {
+    margin: 5px;
+    padding: 5px;
+  }
+  
+  .submit-button {
+    font-size: 12px;
+  }
+  
+  .refresh-button {
+    font-size: 12px;
+  }
+  
+  .submit-type {
+    font-size: 14px;
+  }
 }

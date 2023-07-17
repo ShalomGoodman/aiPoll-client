@@ -153,9 +153,9 @@ function CreatePoll({ onPollCreated }) {
 
   return (
     <>
-      <Link variant="primary" onClick={handleOpen}>
+       <button className="create-poll-button" onClick={handleOpen}>
         Create Poll
-      </Link>
+      </button>
 
       {showModal && (
         <div className="modal-overlay">
@@ -220,6 +220,10 @@ function CreatePoll({ onPollCreated }) {
                   <span>{tokenPrice} tokens</span>
                 </Form.Group>
 
+
+                <Button variant="primary" type="submit" disabled={loading}>
+                  {loading ? "Loading..." : "Submit"}
+
                 {formError && <p>All fields are required.</p>}
 
                 <Button variant="primary" type="submit" disabled={loading || isSubmitDisabled}>
@@ -232,9 +236,12 @@ function CreatePoll({ onPollCreated }) {
                   )}
                 </Button>
                 {submitError && <p>Submit failed. Please try again.</p>}
+                </Button>
               </Form>
+              
             </Modal.Body>
           </Modal>
+          
         </div>
       )}
       <ToastContainer />

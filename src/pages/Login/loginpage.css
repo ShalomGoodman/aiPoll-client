@@ -1,3 +1,4 @@
+/* Sign-in section */
 .sign-in {
   text-align: center;
   margin: 0;
@@ -14,7 +15,6 @@
   height: auto;
   margin-bottom: 53px;
   margin-top: -20px;
- 
 }
 
 .sign-in form {
@@ -31,26 +31,25 @@
 }
 
 .sign-in input {
-line-height: 28px;
-border: 2px solid transparent;
-border-bottom-color: #8fa0a0;
-padding: .2rem 0;
-outline: none;
-background-color: transparent;
-color: #E0E1DD;
-transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  line-height: 28px;
+  border: 2px solid transparent;
+  border-bottom-color: #8fa0a0;
+  padding: .2rem 0;
+  outline: none;
+  background-color: transparent;
+  color: #E0E1DD;
+  transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
- .sign-in input::placeholder {
+.sign-in input::placeholder {
   color: #E0E1DD;
   font-size: 12px;
- }
- 
- .sign-in input:focus::placeholder {
+}
+
+.sign-in input:focus::placeholder {
   opacity: 0;
   transition: opacity .3s;
- }
- 
+}
 
 .sign-in button {
   width: 100px;
@@ -92,11 +91,24 @@ transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
   padding: 5px;
 }
 
-.sign-in .link{
-  color:#0b8d1f;
+.sign-in .link {
+  color: #0b8d1f;
   font-weight: bold;
 }
 
 .sign-in .redirect a:hover {
-text-decoration: underline;
+  text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .sign-in img {
+    margin-bottom: 30px;
+  }
+
+  .sign-in button {
+    width: 80px;
+    height: 40px;
+    font-size: 14px;
+  }
 }
