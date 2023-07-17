@@ -143,9 +143,9 @@ function CreatePoll({ onPollCreated }) {
 
   return (
     <>
-      <Link variant="primary" onClick={handleOpen}>
+       <button className="create-poll-button" onClick={handleOpen}>
         Create Poll
-      </Link>
+      </button>
 
       {showModal && (
         <div className="modal-overlay">
