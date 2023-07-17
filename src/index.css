@@ -14,3 +14,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Media Queries */
+@media (max-width: 768px) {
+  body {
+    background-size: cover;
+    height: 15000vh;
+    width: 15000vh;
+  }
+}

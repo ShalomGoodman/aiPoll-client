@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+# API POLL
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the frontend code for our full-stack web application, which allows users to vote.
 
-## Available Scripts
+# Deployment
 
-In the project directory, you can run:
+Our app is deployed on Netlify. You can access the live deployment at https://ai-poll-client-awsordsz0-elijahw.vercel.app/
 
-### `npm start`
+## Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Authentication**: Secure user authentication for personalized experiences.
+- **Responsive Design**: Responsive layout for optimal viewing across devices.
+- **Modern JavaScript Framework**: Built using React v18.
+- **Modular Codebase**: Well-organized code structure with clear separation of assets, authentication, components, pages, and styles.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- Frontend: React, React Router, Axios
+- Backend: Django
+- Deployment: Heroku, Netlify
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Description
 
-### `npm run build`
+The API Poll App is a full-stack web application built using React. It provides users with an intuitive interface to explore voting polls. Users can scroll through polls, vote, view and create.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The project structure is as follows:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+public
+src
+├── api
+│   └── sendEther.js
+├── assets
+│   ├── b1.png
+│   └── GOLD.png
+├── auth
+│   ├── AuthContextComponent.js
+│   ├── baseURL.js
+│   └── validToken.js
+├── components
+│   └──modal
+│   │   └── CreatePoll.js
+│   ├── Chatbox.js
+│   ├── Choice.js
+│   ├── Comment.js
+│   ├── ERC20.js
+│   ├── GetTimeDiff.js
+│   ├── Navbar.js
+│   ├── Poll.js
+│   └── User.js
+│   └── contracts
+│       ├──contractAbi.js
+│       ├── epi20interface.sol
+│       ├──contractAbi.js
+│       └── Truthanium.sol
+│   └──interfaces 
+│       ├──contractAbi.js
+│       └── ERC20interface.js
+├── pages
+│   └──Home
+│       ├── homepage.css
+│       └──  HomePage.js
+│   └──Login
+│       ├──loginpage.css
+│       └── LoginPage.js
+│   └──Poll
+│       ├──pollpage.js
+│       └──  PollPage.js
+│   └──Signup
+│   │     ├──signup.css
+│   │     └── Signup.js
+│   └── utli
+│   ├──contractConnection.js
+          └── walletConnection.js 
+│ 
+App.css
+App.js
+App.test.js
+Index.css
+index.js
+.env.local
+.gitignore
+package-lock.json
+package.json
+README.md
+```
 
-### `npm run eject`
+## Installation and Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To run the project locally, follow these steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository: `git clone https://github.com/1ElijahW/aiPoll-client..git`
+2. Install the dependencies: `npm install`
+3. Start the development server: `npm start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contributors
 
-## Learn More
+This project has been developed by the following contributors:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ 1ElijahW (Elijah)- Technical Lead
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Created the public frontend and backend repositories.
+- Deployed the frontend to Netlify and Heroku.
+- Conducted code reviews and managed git pulls, merges, and conflicts.
+- Collaborated on frontend architecture and best practices.
 
-### Code Splitting
+ granth2023 (Grant)- Project Manager
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Managed group scheduling and delegated responsibilities.
+- Conducted and scheduled standup meetings.
+- Made significant contributions to frontend authentication, and Web3. 
 
-### Analyzing the Bundle Size
+ ShalomGoodman (Shalom)- Backend and Database Specialist
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Implemented backend routes and Django integration.
+- Collaborated on backend architecture and best practices.
+- Collaborated on frontend architecture and best practices.
 
-### Making a Progressive Web App
+alibay97 (Alison) - Lead Designer and Frontend Developer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Led frontend design efforts.
+- Made significant contributions to frontend development and CSS styling.
+- Collaborated on frontend architecture and best practices.
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Contributions to the project are welcome! If you would like to contribute, please follow these steps:
 
-### Deployment
+1. Fork the repository
+2. Create a new branch for your feature/bug fix: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m "Add your commit message"`
+4. Push to the branch: `git push origin feature/your-feature-name`
+5. Open a pull request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Please make sure to follow the code style guide and maintain consistency with the existing codebase.
 
-### `npm run build` fails to minify
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For any inquiries or further information, please feel free to reach out to any of the contributors mentioned above.
+
+We hope you enjoyed your journey into the ApiPoll!
