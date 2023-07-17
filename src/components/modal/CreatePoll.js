@@ -212,15 +212,17 @@ function CreatePoll({ onPollCreated }) {
 
                 <Button variant="primary" type="submit" disabled={loading}>
                   {loading ? "Loading..." : "Submit"}
-                <Button variant="primary" type="submit">
-                  10 ETH to Post Poll
-                </Button>
+                
+          
 
                 {submitSuccess && <p>Submit successful!</p>}
                 {submitError && <p>Submit failed. Please try again.</p>}
+                </Button>
               </Form>
+              
             </Modal.Body>
           </Modal>
+          
         </div>
       )}
     </>
