@@ -1,3 +1,4 @@
+/* Sign-up page */
 .sign-up {
   text-align: center;
   margin: 0;
@@ -7,69 +8,88 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.sign-up form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sign-up input {
+  line-height: 28px;
+  border: 2px solid transparent;
+  border-bottom-color: #8fa0a0;
+  padding: .2rem 0;
+  outline: none;
+  background-color: transparent;
+  color: #E0E1DD;
+  transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.sign-up input::placeholder {
+  color: #ffffffa9;
+  text-align: left;
+  font-size: 12px;
+}
+
+.sign-up input:focus::placeholder {
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.sign-up button {
+  width: 100px;
+  height: 50px;
+  background-color: #415a77;
+  color: #E0E1DD;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sign-up button:hover {
+  background-color: #486687;
+}
+
+.redirect a {
+  color: white;
+  text-decoration: none;
+}
+
+.goTo {
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  padding: 5px;
+}
+
+.link {
+  color: rgba(0, 166, 126, 0.88);
+  font-weight: bold;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .sign-up {
+    height: auto;
+    padding: 20px;
   }
 
-  .sign-up form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    text-align: center;
-}
-  
   .sign-up input {
-    line-height: 28px;
-   border: 2px solid transparent;
-   border-bottom-color: #8fa0a0;
-   padding: .2rem 0;
-   outline: none;
-   background-color: transparent;
-   color: #E0E1DD;
-   transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    }
-  
-     .sign-up input::placeholder {
-      color: #ffffffa9;
-      text-align: left;
-      font-size: 12px;
-     }
-     
-     .sign-up input:focus::placeholder {
-      opacity: 0;
-      transition: opacity .3s;
-     }
-     
-  
-     .sign-up button {
-      width: 100px;
-      height: 50px;
-      background-color: #415a77;
-      color: #E0E1DD;
-      border: none;
-      border-radius: 12px;
-      font-size: 15px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    
-    .sign-up  button:hover {
-      background-color: #486687;
-    }
-  
-  .redirect a {
-    color: white;
-    text-decoration: none;
+    font-size: 14px;
   }
-  
+
+  .sign-up button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
 
   .goTo {
-    color: rgb(255, 255, 255);
-    font-size: 12px; 
-    padding: 5px;
+    font-size: 10px;
+    padding: 4px;
   }
-  
-  .link{
-   color: rgba(0, 166, 126, 0.88);
-    font-weight: bold;
-  }
-  
+}
