@@ -4,6 +4,7 @@ import Poll from '../../components/Poll';
 import '../Home/homepage.css';
 import { ToastContainer, toast } from "react-toastify";
 
+
 function HomePage() {
   const [polls, setPolls] = useState([]);
   const [pollCreated, setPollCreated] = useState(false); // Add this state
@@ -37,7 +38,6 @@ function HomePage() {
 
   return (
     <div className="home-page">
-      <h1>Home</h1>
       <div className="polls-container">
         {polls.map(poll => (
           <div key={poll.id} className="poll-container">
