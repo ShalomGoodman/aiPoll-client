@@ -17,7 +17,7 @@ const Poll = ({ poll }) => {
   };
 
   return (
-    <div className="poll-container">
+    <div>
       <p className="poll-creator">@{poll.user} • {prevTimeDifference}</p>
       <h2 className="poll-title">{poll.title}</h2>
       <div className="poll-choice">{poll.option_a_label}</div>

@@ -45,6 +45,7 @@ function LoginPage() {
         setPassword("");
         localStorage.setItem("isLoggedIn", true);
         localStorage.setItem("token", response.data.token);
+
         localStorage.setItem("user_id", response.data.user_id);
         navigate("/home");
         notifySuccess();

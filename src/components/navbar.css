@@ -12,16 +12,22 @@
   border-bottom: 2px solid #ffffff4f;
 }
 
+.connect-wallet-button {
+  color: #000000;
+  background-color: #E0E1DD;
+}
 
-.navbar-list li a {
-  display: block;
-  color: #fff;
-  text-align: center;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  border-bottom: 2px solid transparent; /* Add this line for the border underline */
+.home-button {
+  color: #000000;
+  background-color: #E0E1DD;
+}
 
+.logout-button {
+  color: #000000;
+  background-color: #E0E1DD;
+}
+
+.create-poll-button {
+  color: #000000;
+  background-color: #00A67E;
 }
