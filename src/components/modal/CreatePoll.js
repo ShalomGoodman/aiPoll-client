@@ -212,8 +212,6 @@ function CreatePoll({ onPollCreated }) {
 
                 <Button variant="primary" type="submit" disabled={loading}>
                   {loading ? "Loading..." : "Submit"}
-                
-          
 
                 {submitSuccess && <p>Submit successful!</p>}
                 {submitError && <p>Submit failed. Please try again.</p>}

@@ -55,10 +55,10 @@ const PollPage = () => {
           { userVoted || pollData.voting_status == 'closed' ? (
             <div className="poll-results">
               <div className="poll-result">
-                <div className="poll-result-label" style={{ width: `${pollData.percentages[0]}%` }}>{pollData.option_a_label} ∙ {pollData.percentages[0]}%</div>
+                <div className="poll-result-label-a" style={{ width: `${pollData.percentages[0]}%` }}>{pollData.option_a_label} ∙ {pollData.percentages[0]}%</div>
               </div>
               <div className="poll-result">
-                <div className="poll-result-label" style={{ width: `${pollData.percentages[1]}%` }}>{pollData.option_b_label} ∙ {pollData.percentages[1]}%</div>
+                <div className="poll-result-label-b" style={{ width: `${pollData.percentages[1]}%` }}>{pollData.option_b_label} ∙ {pollData.percentages[1]}%</div>
               </div>
             </div>
           ) : <div>
