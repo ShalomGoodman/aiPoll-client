@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { parseUnits, formatUnits } from 'ethers';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
-import base from '../../auth/baseURL';
-import { tokenTransfer, erc20contract } from '../../interfaces/ERC20Interface';
-import { Link } from 'react-router-dom';
+import { parseUnits, formatUnits } from "ethers";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import base from "../../auth/baseURL";
+import { tokenTransfer, erc20contract } from "../../interfaces/ERC20Interface";
+import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function CreatePoll({ onPollCreated }) {
   const [showModal, setShowModal] = useState(false);
-  const [title, setTitle] = useState('');
-  const [choiceA, setChoiceA] = useState('');
-  const [choiceB, setChoiceB] = useState('');
+  const [title, setTitle] = useState("");
+  const [choiceA, setChoiceA] = useState("");
+  const [choiceB, setChoiceB] = useState("");
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -26,7 +26,7 @@ function CreatePoll({ onPollCreated }) {
   const [formError, setFormError] = useState(false); // State to track form error
 
   function addSmartContractListener() {
-    erc20contract.on('Transfer', (message, _to, _value) => {
+    erc20contract.on("Transfer", (message, _to, _value) => {
       console.log(message, _to, _value);
       // setTransfer(data);
     });
@@ -72,7 +72,8 @@ function CreatePoll({ onPollCreated }) {
   };
 
   const updateTokenPrice = (selectedDays, selectedHours, selectedMinutes) => {
-    const totalMinutes = selectedDays * 24 * 60 + selectedHours * 60 + selectedMinutes;
+    const totalMinutes =
+      selectedDays * 24 * 60 + selectedHours * 60 + selectedMinutes;
     const tokenPerMinute = 1; // Number of tokens per minute
     const tokenAmount = totalMinutes * tokenPerMinute;
     setTokenPrice(tokenAmount);
@@ -82,7 +83,12 @@ function CreatePoll({ onPollCreated }) {
     e.preventDefault();
 
     // Check if any field is missing
-    if (!title || !choiceA || !choiceB || days === 0 && hours === 0 && minutes === 0) {
+    if (
+      !title ||
+      !choiceA ||
+      !choiceB ||
+      (days === 0 && hours === 0 && minutes === 0)
+    ) {
       setFormError(true);
       return;
     }
@@ -90,7 +96,7 @@ function CreatePoll({ onPollCreated }) {
     setLoading(true); // Set loading state to true
 
     // Get user's Metamask address
-    const userAddress = '0xfc22954a701CfD0f59357FfA97044D78b21828ce';
+    const userAddress = "0xfc22954a701CfD0f59357FfA97044D78b21828ce";
 
     // Calculate the token amount based on the token price
     const tokenAmount = tokenPrice;
@@ -102,7 +108,8 @@ function CreatePoll({ onPollCreated }) {
       // Wait for the transaction to finish
       const result = await transaction.wait();
 
-      if (result.status !== 1) { // Check if transaction was successful
+      if (result.status !== 1) {
+        // Check if transaction was successful
         console.error("Token transfer failed.");
         setSubmitError(true);
         setLoading(false); // Set loading state to false
@@ -110,6 +117,7 @@ function CreatePoll({ onPollCreated }) {
       }
 
       console.log("Token transfer successful!");
+      toast.success('Transaction complete. Poll successfully created!', { autoClose: 1500 })
     } catch (err) {
       console.error(err);
       setSubmitError(true);
@@ -119,18 +127,21 @@ function CreatePoll({ onPollCreated }) {
 
     try {
       const duration = days * 1440 + hours * 60 + minutes;
-      const deadline = new Date(Date.now() + duration * 60 * 1000).toISOString();
+      const deadline = new Date(
+        Date.now() + duration * 60 * 1000
+      ).toISOString();
       const poll = {
         title: title,
         option_a_label: choiceA,
         option_b_label: choiceB,
         deadline: deadline,
-        creator: localStorage.getItem('user_id'),
+        creator: localStorage.getItem("user_id"),
       };
 
-      const response = await base.post('/api/polls/', poll); // modify this path if it's not the correct endpoint
+      const response = await base.post("/api/polls/", poll); // modify this path if it's not the correct endpoint
 
-      if (response.status === 200) { // Check if poll was successfully created
+      if (response.status === 200) {
+        // Check if poll was successfully created
         setSubmitSuccess(true);
         onPollCreated(); // Call the function passed from the parent component
         toast.success("Transaction successful. Poll created!"); // Display success toast notification
@@ -147,13 +158,17 @@ function CreatePoll({ onPollCreated }) {
       setLoading(false); // Set loading state to false
       console.log(error.response.data); // Log the error response data
     }
-  }
+  };
 
-  const isSubmitDisabled = !title || !choiceA || !choiceB || days === 0 && hours === 0 && minutes === 0;
+  const isSubmitDisabled =
+    !title ||
+    !choiceA ||
+    !choiceB ||
+    (days === 0 && hours === 0 && minutes === 0);
 
   return (
     <>
-       <button className="create-poll-button" onClick={handleOpen}>
+      <button className="create-poll-button" onClick={handleOpen}>
         Create Poll
       </button>
 
@@ -168,22 +183,38 @@ function CreatePoll({ onPollCreated }) {
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formTitle">
                   <Form.Label>Title</Form.Label>
-                  <Form.Control type="text" value={title} onChange={handleTitleChange} />
+                  <Form.Control
+                    type="text"
+                    value={title}
+                    onChange={handleTitleChange}
+                  />
                 </Form.Group>
 
                 <Form.Group controlId="formChoiceA">
                   <Form.Label>Choice A</Form.Label>
-                  <Form.Control type="text" value={choiceA} onChange={handleChoiceAChange} />
+                  <Form.Control
+                    type="text"
+                    value={choiceA}
+                    onChange={handleChoiceAChange}
+                  />
                 </Form.Group>
 
                 <Form.Group controlId="formChoiceB">
                   <Form.Label>Choice B</Form.Label>
-                  <Form.Control type="text" value={choiceB} onChange={handleChoiceBChange} />
+                  <Form.Control
+                    type="text"
+                    value={choiceB}
+                    onChange={handleChoiceBChange}
+                  />
                 </Form.Group>
 
                 <Form.Group controlId="formDuration">
                   <Form.Label>Duration</Form.Label>
-                  <Form.Control as="select" value={days} onChange={handleDaysChange}>
+                  <Form.Control
+                    as="select"
+                    value={days}
+                    onChange={handleDaysChange}
+                  >
                     <option value={0}>0 days</option>
                     <option value={1}>1 day</option>
                     <option value={2}>2 days</option>
@@ -193,7 +224,11 @@ function CreatePoll({ onPollCreated }) {
                     <option value={6}>6 days</option>
                     <option value={7}>7 days</option>
                   </Form.Control>
-                  <Form.Control as="select" value={hours} onChange={handleHoursChange}>
+                  <Form.Control
+                    as="select"
+                    value={hours}
+                    onChange={handleHoursChange}
+                  >
                     <option value={0}>0 hours</option>
                     <option value={1}>1 hour</option>
                     <option value={2}>2 hours</option>
@@ -203,7 +238,11 @@ function CreatePoll({ onPollCreated }) {
                     <option value={6}>6 hours</option>
                     <option value={7}>7 hours</option>
                   </Form.Control>
-                  <Form.Control as="select" value={minutes} onChange={handleMinutesChange}>
+                  <Form.Control
+                    as="select"
+                    value={minutes}
+                    onChange={handleMinutesChange}
+                  >
                     <option value={0}>0 minutes</option>
                     <option value={1}>1 minute</option>
                     <option value={2}>2 minutes</option>
@@ -220,15 +259,18 @@ function CreatePoll({ onPollCreated }) {
                   <span>{tokenPrice} tokens</span>
                 </Form.Group>
 
-
-                <Button variant="primary" type="submit" disabled={loading}>
-                  {loading ? "Loading..." : "Submit"}
-
                 {formError && <p>All fields are required.</p>}
 
-                <Button variant="primary" type="submit" disabled={loading || isSubmitDisabled}>
+                <Button
+                  variant="primary"
+                  type="submit"
+                  disabled={loading || isSubmitDisabled}
+                >
                   {loading ? (
-                    <div className="spinner-border spinner-border-sm" role="status">
+                    <div
+                      className="spinner-border spinner-border-sm"
+                      role="status"
+                    >
                       <span className="visually-hidden">Loading...</span>
                     </div>
                   ) : (
@@ -236,12 +278,9 @@ function CreatePoll({ onPollCreated }) {
                   )}
                 </Button>
                 {submitError && <p>Submit failed. Please try again.</p>}
-                </Button>
               </Form>
-              
             </Modal.Body>
           </Modal>
-          
         </div>
       )}
       <ToastContainer />
