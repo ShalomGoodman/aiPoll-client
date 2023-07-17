@@ -6,8 +6,9 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import base from '../../auth/baseURL';
 import { tokenTransfer, erc20contract } from '../../interfaces/ERC20Interface';
-import { Link } from 'react-router-dom'; 
-
+import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CreatePoll({ onPollCreated }) {
   const [showModal, setShowModal] = useState(false);
@@ -22,6 +23,7 @@ function CreatePoll({ onPollCreated }) {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [formError, setFormError] = useState(false); // State to track form error
 
   function addSmartContractListener() {
     erc20contract.on('Transfer', (message, _to, _value) => {
@@ -70,14 +72,20 @@ function CreatePoll({ onPollCreated }) {
   };
 
   const updateTokenPrice = (selectedDays, selectedHours, selectedMinutes) => {
-    const totalHours = selectedDays * 24 + selectedHours;
-    const tokenPerHour = 1; // Number of tokens per hour
-    const tokenAmount = totalHours * tokenPerHour;
+    const totalMinutes = selectedDays * 24 * 60 + selectedHours * 60 + selectedMinutes;
+    const tokenPerMinute = 1; // Number of tokens per minute
+    const tokenAmount = totalMinutes * tokenPerMinute;
     setTokenPrice(tokenAmount);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if any field is missing
+    if (!title || !choiceA || !choiceB || days === 0 && hours === 0 && minutes === 0) {
+      setFormError(true);
+      return;
+    }
 
     setLoading(true); // Set loading state to true
 
@@ -109,7 +117,6 @@ function CreatePoll({ onPollCreated }) {
       return;
     }
 
-
     try {
       const duration = days * 1440 + hours * 60 + minutes;
       const deadline = new Date(Date.now() + duration * 60 * 1000).toISOString();
@@ -126,6 +133,7 @@ function CreatePoll({ onPollCreated }) {
       if (response.status === 200) { // Check if poll was successfully created
         setSubmitSuccess(true);
         onPollCreated(); // Call the function passed from the parent component
+        toast.success("Transaction successful. Poll created!"); // Display success toast notification
       } else {
         setSubmitError(true);
       }
@@ -140,6 +148,8 @@ function CreatePoll({ onPollCreated }) {
       console.log(error.response.data); // Log the error response data
     }
   }
+
+  const isSubmitDisabled = !title || !choiceA || !choiceB || days === 0 && hours === 0 && minutes === 0;
 
   return (
     <>
@@ -210,10 +220,21 @@ function CreatePoll({ onPollCreated }) {
                   <span>{tokenPrice} tokens</span>
                 </Form.Group>
 
+
                 <Button variant="primary" type="submit" disabled={loading}>
                   {loading ? "Loading..." : "Submit"}
 
-                {submitSuccess && <p>Submit successful!</p>}
+                {formError && <p>All fields are required.</p>}
+
+                <Button variant="primary" type="submit" disabled={loading || isSubmitDisabled}>
+                  {loading ? (
+                    <div className="spinner-border spinner-border-sm" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                  ) : (
+                    "Submit"
+                  )}
+                </Button>
                 {submitError && <p>Submit failed. Please try again.</p>}
                 </Button>
               </Form>
@@ -223,6 +244,7 @@ function CreatePoll({ onPollCreated }) {
           
         </div>
       )}
+      <ToastContainer />
     </>
   );
 }
