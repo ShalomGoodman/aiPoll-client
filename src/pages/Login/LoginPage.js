@@ -47,6 +47,7 @@ function LoginPage() {
         localStorage.setItem("token", response.data.token);
 
         localStorage.setItem("user_id", response.data.user_id);
+        localStorage.setItem("username", response.data.username);
         navigate("/home");
         notifySuccess();
       }
