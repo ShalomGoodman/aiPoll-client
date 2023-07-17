@@ -4,7 +4,7 @@ This repository contains the frontend code for our full-stack web application, w
 
 # Deployment
 
-Our app is deployed on Netlify. You can access the live deployment at https://ai-poll-client-awsordsz0-elijahw.vercel.app/
+Our app is deployed on Vercel. You can access the live deployment at https://ai-poll-client-awsordsz0-elijahw.vercel.app/
 
 ## Key Features
 
@@ -17,7 +17,7 @@ Our app is deployed on Netlify. You can access the live deployment at https://ai
 
 - Frontend: React, React Router, Axios
 - Backend: Django
-- Deployment: Heroku, Netlify
+- Deployment: Vercel
 
 ## Project Description
 
@@ -100,26 +100,26 @@ To run the project locally, follow these steps:
 
 This project has been developed by the following contributors:
 
- 1ElijahW (Elijah)- Technical Lead
+ 1ElijahW (Elijah)- Technical Lead / Front End Developer
 
 - Created the public frontend and backend repositories.
 - Deployed the frontend to Netlify and Heroku.
 - Conducted code reviews and managed git pulls, merges, and conflicts.
 - Collaborated on frontend architecture and best practices.
 
- granth2023 (Grant)- Project Manager
+ granth2023 (Grant)- Project Manager / Front End Developer
 
 - Managed group scheduling and delegated responsibilities.
 - Conducted and scheduled standup meetings.
 - Made significant contributions to frontend authentication, and Web3. 
 
- ShalomGoodman (Shalom)- Backend and Database Specialist
+ ShalomGoodman (Shalom)- Backend Developer / Database Specialist
 
 - Implemented backend routes and Django integration.
 - Collaborated on backend architecture and best practices.
 - Collaborated on frontend architecture and best practices.
 
-alibay97 (Alison) - Lead Designer and Frontend Developer
+alibay97 (Alison) - Lead Designer / Frontend Developer
 
 - Led frontend design efforts.
 - Made significant contributions to frontend development and CSS styling.
