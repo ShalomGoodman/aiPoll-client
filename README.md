@@ -100,7 +100,7 @@ To run the project locally, follow these steps:
 
 This project has been developed by the following contributors:
 
- 1ElijahW (Elijah)- Technical Lead / Front End Developer
+ 1ElijahW (Elijah)- Technical Lead / Front End Developer / UX-UI
 
 - Created the public frontend and backend repositories.
 - Deployed the frontend to Netlify and Heroku.

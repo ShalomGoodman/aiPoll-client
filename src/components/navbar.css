@@ -1,4 +1,5 @@
 .navbar {
+  background-color: #3a6b99;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -8,7 +9,6 @@
   width: 100%;
   border-bottom: 2px solid #ffffff4f;
 }
-
 
 .connect-wallet-button {
   padding: 12px;
@@ -27,7 +27,7 @@
 }
 
 .connect-wallet-button:hover {
-  background-color: #f0eded;
+  background-color: #cfcfcf;
   transform: translateY(-7px);
 }
 
@@ -81,7 +81,7 @@
 }
 
 .home-button:hover {
-  background-color: #f0eded;
+  background-color: #cfcfcf;
   transform: translateY(-7px);
 }
 
