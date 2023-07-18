@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Poll from '../../components/Poll';
 import '../Home/homepage.css';
-import { ToastContainer, toast } from "react-toastify";
-
+import CreatePoll from '../../components/modal/CreatePoll';
+import { ToastContainer, toast } from 'react-toastify';
 
 function HomePage() {
   const [polls, setPolls] = useState([]);
@@ -39,13 +39,13 @@ function HomePage() {
   return (
     <div className="home-page">
       <div className="polls-container">
-        {polls.map(poll => (
+        {polls.map((poll) => (
           <div key={poll.id} className="poll-container">
             <Poll poll={poll} />
           </div>
-          
         ))}
       </div>
+      <CreatePoll onPollCreated={handlePollCreated} /> {/* Render the CreatePoll component */}
       <ToastContainer />
     </div>
   );

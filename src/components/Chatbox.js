@@ -54,12 +54,12 @@ function Chatbox({ chatbox_id }) {
   return (
     <div className="chatbox">
       <div className="chatbox-header">
-        <h3>Chatbox</h3>
-        <div className='submit-cotainer'>
         <button className="refresh-button" 
         onClick={fetchChatbox}>
           <FaSync/>
           </button>
+        <h3>Chatbox</h3>
+        <div className='submit-cotainer'>
           </div>
       </div>
       <div className="chatbox-comments">

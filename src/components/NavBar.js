@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './navbar.css';
-import CreatePoll from './modal/CreatePoll';
 import { ToastContainer, toast } from 'react-toastify';
 
 const NavBar = ({ connectWallet, walletAddress }) => {
@@ -24,31 +23,32 @@ const NavBar = ({ connectWallet, walletAddress }) => {
 
   return (
     <nav className="navbar">
-      {isLoggedIn && (
-        <>
-          <CreatePoll />
-          <button
-            id="walletButton"
-            className="connect-wallet-button"
-            onClick={connectWallet}
-          >
-            {walletAddress.length > 0 ? (
-              <>
-                Connected: {walletAddress.substring(0, 6)}...
-                {walletAddress.substring(38)}
-              </>
-            ) : (
-              <span>Connect Wallet</span>
-            )}
-          </button>
-          <button className="home-button" onClick={() => navigate('/home')}>
-            Home
-          </button>
-          <button className="logout-button" onClick={handleLogout}>
-            Log out
-          </button>
-        </>
-      )}
+      <div className="navbar-buttons">
+        {isLoggedIn && (
+          <>
+            <button
+              id="walletButton"
+              className="connect-wallet-button"
+              onClick={connectWallet}
+            >
+              {walletAddress.length > 0 ? (
+                <>
+                  Connected: {walletAddress.substring(0, 6)}...
+                  {walletAddress.substring(38)}
+                </>
+              ) : (
+                <span>Connect Wallet</span>
+              )}
+            </button>
+            <button className="home-button" onClick={() => navigate('/home')}>
+              Home
+            </button>
+            <button className="logout-button" onClick={handleLogout}>
+              Logout
+            </button>
+          </>
+        )}
+      </div>
     </nav>
   );
 };
