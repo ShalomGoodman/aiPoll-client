@@ -1,4 +1,3 @@
-/* Sign-up page */
 .sign-up {
   text-align: center;
   margin: 0;
@@ -75,7 +74,8 @@
 }
 
 /* Media Queries */
-@media (max-width: 768px) {
+/* Sign-up page */
+@media only screen and (max-width: 768px) {
   .sign-up {
     height: auto;
     padding: 20px;

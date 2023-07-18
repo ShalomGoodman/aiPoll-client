@@ -40,12 +40,14 @@ const NavBar = ({ connectWallet, walletAddress }) => {
                 <span>Connect Wallet</span>
               )}
             </button>
+            <div className="right-side-buttons">
             <button className="home-button" onClick={() => navigate('/home')}>
               Home
             </button>
             <button className="logout-button" onClick={handleLogout}>
               Logout
             </button>
+            </div>
           </>
         )}
       </div>
