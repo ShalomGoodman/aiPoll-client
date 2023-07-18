@@ -44,7 +44,7 @@ const NavBar = ({ connectWallet, walletAddress }) => {
               Home
             </button>
             <button className="logout-button" onClick={handleLogout}>
-              Log out
+              Logout
             </button>
           </>
         )}

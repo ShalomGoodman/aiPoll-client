@@ -89,3 +89,11 @@ form button {
 .close-button {
   cursor: pointer;
 }
+
+.refresh-button {
+ cursor: pointer;
+}
+
+.refresh-button:hover {
+  color: #007bff;
+}

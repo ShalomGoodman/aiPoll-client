@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #3a6b99;
+  background-color: #008481;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -19,7 +19,7 @@
 .connect-wallet-button,
 .logout-button,
 .home-button {
-  padding: 12px;
+  padding: 12px 24px;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -28,17 +28,17 @@
   background-color: #fff;
   border: none;
   border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
   margin-left: 10px;
+  margin-right: 20px;
 }
 
 .connect-wallet-button:hover,
 .logout-button:hover,
 .home-button:hover {
-  background-color: #cfcfcf;
+  background-color: #ebeaea;
   transform: translateY(-7px);
 }
 
