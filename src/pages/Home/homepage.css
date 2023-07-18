@@ -3,6 +3,8 @@
   padding: 20px;
   color: #14171a;
   font-family: Arial, sans-serif;
+  background-image: url('../../assets/blur2.png');
+  background-size: cover;
 }
 
 .home-page  h1{
@@ -13,12 +15,12 @@
 }
 
 .polls-container {
-  display: flex;
   flex-direction: column;
 }
 
+
 .poll-container {
-  background-color: #f5f8fa;
+  /* background-color: #f5f8fa; */
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -32,17 +34,21 @@
 
 .poll-container p {
   font-size: 14px;
-  color: #657786;
+  color: #3a4956;
   margin-bottom: 10px;
 }
 
+.poll-votes {
+  transform: translate(379px, 18px);
+}
+
+
+
 .poll-container .options {
-  display: flex;
   flex-direction: column;
 }
 
 .poll-container .option {
-  display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -75,7 +81,6 @@
 }
 
 .poll-container .poll-info {
-  display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -97,7 +102,6 @@
 }
 
 .poll-container .poll-actions {
-  display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 10px;
@@ -109,9 +113,9 @@
   cursor: pointer;
 }
 
-.poll-container .poll-actions .action-btn:hover {
+/* .poll-container .poll-actions .action-btn:hover {
   text-decoration: underline;
-}
+} */
 
 .create-poll-button {
   position: fixed;
@@ -142,48 +146,3 @@
   transform: translateY(-1px);
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-  .poll-container {
-    padding: 15px;
-  }
-
-  .poll-container h3 {
-    font-size: 16px;
-  }
-
-  .poll-container p {
-    font-size: 12px;
-  }
-
-  .poll-container .option label {
-    font-size: 12px;
-  }
-
-  .poll-container .vote-btn {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-
-  .home-page h1 {
-    font-size: 20px;
-  }
-
-  .poll-container .poll-info img {
-    width: 30px;
-    height: 30px;
-  }
-
-  .poll-container .poll-info .username {
-    font-weight: normal;
-    font-size: 12px;
-  }
-
-  .poll-container .poll-info .timestamp {
-    font-size: 10px;
-  }
-
-  .poll-container .poll-actions .action-btn {
-    font-size: 10px;
-  }
-}

@@ -1,6 +1,5 @@
 .navbar {
   background-color: #008481;
-  display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 10px;
@@ -11,7 +10,6 @@
 }
 
 .navbar-buttons {
-  display: flex;
   align-items: center;
   margin-left: auto;
 }
@@ -24,8 +22,9 @@
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
-  color: #000;
-  background-color: #fff;
+  font-weight: 500;
+  color: #fff900;
+  background-color: #ffffff70;
   border: none;
   border-radius: 45px;
   transition: all 0.3s ease 0s;
@@ -38,8 +37,9 @@
 .connect-wallet-button:hover,
 .logout-button:hover,
 .home-button:hover {
-  background-color: #ebeaea;
+  background-color: #9effa6a6;
   transform: translateY(-7px);
+  color:#fff
 }
 
 .connect-wallet-button:active,

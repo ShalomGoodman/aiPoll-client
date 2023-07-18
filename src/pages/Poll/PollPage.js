@@ -60,7 +60,8 @@ const PollPage = () => {
     }
   };
 
-  return (
+  return ( 
+  <div className="poll-page">
     <div className='vote-container'>
       {pollData && (
         <>
@@ -94,6 +95,7 @@ const PollPage = () => {
           <Chatbox chatbox_id={pollData.chatbox} />
         </>
       )}
+    </div>
     </div>
   );
 };

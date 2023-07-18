@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   height: 100vh;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -18,14 +17,12 @@
 }
 
 .sign-in form {
-  display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
 }
 
 .sign-in label {
-  display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
@@ -37,6 +34,7 @@
   background-color: #fff;
   border-color: #eee #ddd #bbb;
   transition: 300ms ease-in-out;
+  box-shadow: 1px 10px 25px -5px rgb(109 242 96 / 23%), 1px 10px 25px 5px rgb(76 223 205 / 15%);
 }
 
 .sign-in input::placeholder {
@@ -69,12 +67,6 @@
   background-color: #017775;;
 }
 
-
-.sign-in .link {
-  color: blue;
-  text-decoration: none;
-}
-
 .sign-in .redirect {
   color: white;
   text-decoration: none;
@@ -88,7 +80,7 @@
 }
 
 .sign-in .link {
-  color: #0b8d1f;
+  color: #fff007;
   font-weight: bold;
 }
 
@@ -96,15 +88,4 @@
   text-decoration: underline;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-  .sign-in img {
-    margin-bottom: 30px;
-  }
 
-  .sign-in button {
-    width: 80px;
-    height: 40px;
-    font-size: 14px;
-  }
-}

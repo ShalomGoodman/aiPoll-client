@@ -1,8 +1,9 @@
 .comment-container {
   margin: 10px;
   padding: 10px;
-  background-color: #38546c12;
+  background-color: #38546c8a;
   border-radius: 10px;
+  color:#fff;
 }
 
 .comment-container:hover {
@@ -79,24 +80,3 @@
 
 
 
-/* Media Queries */
-
-@media screen and (max-width: 600px) {
-  /* Adjust styles for screens with a maximum width of 600px */
-  .comment-container {
-    margin: 5px;
-    padding: 5px;
-  }
-  
-  .submit-button {
-    font-size: 12px;
-  }
-  
-  .refresh-button {
-    font-size: 12px;
-  }
-  
-  .submit-type {
-    font-size: 14px;
-  }
-}

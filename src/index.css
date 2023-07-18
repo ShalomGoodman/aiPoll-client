@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #008481;
+  background-image: url('../src/assets/blur-opacity2.png');
   background-size: cover;
 }
 
@@ -14,11 +14,3 @@ code {
     monospace;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-  body {
-    background-size: cover;
-    height: 15000vh;
-    width: 15000vh;
-  }
-}
