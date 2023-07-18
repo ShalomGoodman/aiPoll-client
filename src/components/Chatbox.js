@@ -11,6 +11,18 @@ function Chatbox({ chatbox_id }) {
     fetchChatbox();
   }, []);
 
+  const handleDelete = (id) => {
+    base.delete(`/api/comments/${id}`)
+    .then(response => {
+      console.log(response);
+      // Update comments state to remove deleted comment
+      setComments(prevComments => prevComments.filter(c => c.id !== id));
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
   const fetchChatbox = async () => {
     try {
       const response = await base.get(`/api/chatboxes/${chatbox_id}/`, {});
@@ -51,9 +63,9 @@ function Chatbox({ chatbox_id }) {
           </div>
       </div>
       <div className="chatbox-comments">
-        {comments.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
-        ))}
+      {comments.map((comment) => (
+         <Comment key={comment.id} comment={comment} handleDelete={handleDelete} />
+      ))}
       </div>
       <form onSubmit={handleSubmit}>
   <div>

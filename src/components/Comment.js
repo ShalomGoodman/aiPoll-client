@@ -1,25 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './Comment.css'; // Import the CSS file
 import { getPrevTimeDifference } from './GetTimeDiff';
 
-function Comment({comment}) {
+
+function Comment({comment, handleDelete}) {
 
   const prevTimeDifference = getPrevTimeDifference(comment.created_at);
 
- return (
+  return (
     <div className="comment-container">
-              <div key={comment.id} className="comment">
-                <div className="user-profile">
-                  <span>@{comment.creator_name}</span>
-                </div>
-                <div className="comment-content">
-                  <p>{comment.text}</p>
-                  <span>{prevTimeDifference}</span>
-                </div>
-              </div>
+      <div key={comment.id} className="comment">
+        <div className="user-profile">
+          <span>@{comment.creator_name}</span>
+        </div>
+        <div className="comment-content">
+          <p>{comment.text}</p>
+          <span>{prevTimeDifference}</span>
+          {Number(comment.creator) === Number(localStorage.getItem('user_id')) && (
+              <button onClick={() => handleDelete(comment.id)} className="delete-btn">Delete</button>
+          )}
+        </div>
+      </div>
     </div>
   );
+  
 }
 
 export default Comment;
