@@ -8,7 +8,7 @@ import { signup } from "../../auth/validToken";
 export default function SignupPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [walletAddress, setWalletAddress] = useState("");
+  const [walletAddress, setWalletAddress] = useState("123456789");
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -18,7 +18,7 @@ export default function SignupPage() {
   
       setUsername("");
       setPassword("");
-      setWalletAddress("");
+      setWalletAddress("123456789");
       toast.success("Successfully signed up!", { autoClose: 1500 });
       navigate("/login");
     } catch (error) {
@@ -56,7 +56,7 @@ export default function SignupPage() {
           />
         </label>
         <br />
-        <label>
+        {/* <label>
 
           <input
             type="text"
@@ -65,7 +65,7 @@ export default function SignupPage() {
             onChange={(event) => setWalletAddress(event.target.value)}
           />
         </label>
-        <br />
+        <br /> */}
         <button type="submit">Sign Up</button>
       </form>
       <span className="goTo">
