@@ -94,6 +94,7 @@ function CreatePoll({ onPollCreated }) {
     }
 
     setLoading(true); // Set loading state to true
+    toast.loading("Transaction in progress. Please wait...");
 
     // Get user's Metamask address
     const userAddress = "0xfc22954a701CfD0f59357FfA97044D78b21828ce";
@@ -111,13 +112,15 @@ function CreatePoll({ onPollCreated }) {
       if (result.status !== 1) {
         // Check if transaction was successful
         console.error("Token transfer failed.");
+        toast.error("Transaction failed. Please try again.");
         setSubmitError(true);
         setLoading(false); // Set loading state to false
         return;
       }
 
       console.log("Token transfer successful!");
-      toast.success('Transaction complete. Poll successfully created!', { autoClose: 1500 })
+      toast.dismiss(); // Dismiss the loading toast notification
+      toast.success('Transaction complete! Poll is being created.', { autoClose: 1500 })
     } catch (err) {
       console.error(err);
       setSubmitError(true);
@@ -144,7 +147,7 @@ function CreatePoll({ onPollCreated }) {
         // Check if poll was successfully created
         setSubmitSuccess(true);
         onPollCreated(); // Call the function passed from the parent component
-        toast.success("Transaction successful. Poll created!"); // Display success toast notification
+        toast.success("Poll was successfully created!"); // Display success toast notification
       } else {
         setSubmitError(true);
       }
@@ -159,6 +162,8 @@ function CreatePoll({ onPollCreated }) {
       console.log(error.response.data); // Log the error response data
     }
   };
+
+
 
   const isSubmitDisabled =
     !title ||

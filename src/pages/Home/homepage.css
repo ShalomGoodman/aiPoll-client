@@ -5,11 +5,12 @@
   font-family: Arial, sans-serif;
 }
 
-.home-page  h1{
+.home-page h1 {
   padding: 20px;
   color: #14171a;
   font-family: Arial, sans-serif;
-  
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .polls-container {
@@ -67,11 +68,6 @@
 
 .poll-container .vote-btn:hover {
   background-color: #0f86d3;
-}
-
-.home-page h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
 }
 
 .poll-container .poll-info {
@@ -185,5 +181,16 @@
 
   .poll-container .poll-actions .action-btn {
     font-size: 10px;
+  }
+
+  /* Additional Mobile Styles */
+  .home-page {
+    padding: 10px;
+  }
+
+  .create-poll-button {
+    padding: 20px 30px;
+    font-size: 12px;
+    border-radius: 35px;
   }
 }
