@@ -10,60 +10,14 @@
   border-bottom: 2px solid #ffffff4f;
 }
 
-.connect-wallet-button {
-  padding: 12px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 }
 
-.connect-wallet-button:hover {
-  background-color: #cfcfcf;
-  transform: translateY(-7px);
-}
-
-.connect-wallet-button:active {
-  transform: translateY(-1px);
-}
-
-
-.logout-button {
-  padding: 12px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-}
-
-.logout-button:hover {
-  background-color: #000;
-  color: #fff;
-  border: 2px solid #fff;
-  transform: translateY(-7px);
-}
-
-.logout-button:active {
-  transform: translateY(-1px);
-}
-
-
+.connect-wallet-button,
+.logout-button,
 .home-button {
   padding: 12px;
   font-size: 12px;
@@ -78,40 +32,18 @@
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
+  margin-left: 10px;
 }
 
+.connect-wallet-button:hover,
+.logout-button:hover,
 .home-button:hover {
   background-color: #cfcfcf;
   transform: translateY(-7px);
 }
 
+.connect-wallet-button:active,
+.logout-button:active,
 .home-button:active {
   transform: translateY(-1px);
 }
-
-.create-poll-button {
-  padding: 12px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-}
-
-.create-poll-button:hover {
-  background-color: #23c483;
-  color: #fff;
-  transform: translateY(-7px);
-}
-
-.create-poll-button:active {
-  transform: translateY(-1px);
-}
-

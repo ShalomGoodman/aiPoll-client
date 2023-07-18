@@ -100,12 +100,14 @@ To run the project locally, follow these steps:
 
 This project has been developed by the following contributors:
 
- 1ElijahW (Elijah)- Technical Lead / Front End Developer / UX-UI
 
-- Created the public frontend and backend repositories.
-- Deployed the frontend to Netlify and Heroku.
+ 1ElijahW (Elijah)- Technical Lead / Front End Developer / UX-UI
+ 
+- Collaborated on frontend architecture and best practices, leveraging UX/UI background.
+- Deployed the frontend to Vercel.
+- Contributed to design elements such as color palettes, buttons, input fields, etc.
+- Developed the public frontend repository.
 - Conducted code reviews and managed git pulls, merges, and conflicts.
-- Collaborated on frontend architecture and best practices.
 
  granth2023 (Grant)- Project Manager / Front End Developer
 

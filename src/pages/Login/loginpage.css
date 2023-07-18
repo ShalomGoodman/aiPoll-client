@@ -31,12 +31,11 @@
 }
 
 .sign-in input {
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 25px;
   padding: 1em;
   background-color: #fff;
   border-color: #eee #ddd #bbb;
-  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
   transition: 300ms ease-in-out;
 }
 
