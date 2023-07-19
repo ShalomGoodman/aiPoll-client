@@ -59,7 +59,9 @@
 }
 
 .refresh-button:hover {
-  background-color: #f2cf525e;
+  font-size: 16px;
+  color: #000;
+  transform: scale(1.1);
 }
 .textarea {
   width: 100%;
@@ -93,5 +95,7 @@
 }
 
 .delete-btn:hover {
-  background-color: #f2cf525e;
+  font-size: 16px;
+  color: #000;
+  transform: scale(1.1);
 }
