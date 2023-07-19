@@ -142,6 +142,7 @@
 @media (max-width: 768px) {
   .poll-container {
     padding: 15px;
+    display:block;
   }
 
   .poll-container h3 {
@@ -181,16 +182,27 @@
 
   .poll-container .poll-actions .action-btn {
     font-size: 10px;
-  }
 
+  .create-poll-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 17px 25px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #23c483;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
   /* Additional Mobile Styles */
   .home-page {
     padding: 10px;
   }
 
-  .create-poll-button {
-    padding: 20px 30px;
-    font-size: 12px;
-    border-radius: 35px;
-  }
-}
