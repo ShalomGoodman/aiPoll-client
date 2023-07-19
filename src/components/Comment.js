@@ -1,6 +1,6 @@
 import React from 'react';
 import './Comment.css'; // Import the CSS file
-import { getPrevTimeDifference } from './GetTimeDiff';
+import { getPrevTimeDifference } from '../util/GetTimeDiff';
 import { FaTrash } from 'react-icons/fa';
 
 function Comment({ comment, handleDelete }) {

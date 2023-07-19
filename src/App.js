@@ -9,6 +9,7 @@ import { AuthProvider } from './auth/AuthContextComponent';
 import { ConnectWallet, getCurrentWalletConnected } from './util/walletConnection';
 import { ToastContainer, toast } from "react-toastify";
 import '../node_modules/react-toastify/dist/ReactToastify.css'
+import { ScrollToTop } from './util/ScrollToTop';
 
 function App() {
   const [walletAddress, setWallet] = useState("");
@@ -34,6 +35,7 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="App">
+          <ScrollToTop />
           <ToastContainer />
           {isLoggedIn ? (
             <NavBar connectWallet={connectWallet} walletAddress={walletAddress} />
