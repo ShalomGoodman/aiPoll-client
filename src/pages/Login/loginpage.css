@@ -1,12 +1,9 @@
 /* Sign-in section */
 .sign-in {
   text-align: center;
-  margin: 0;
-  padding: 0;
+  margin: 100px;
+  padding: 100px;
   height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .sign-in img {
@@ -31,6 +28,7 @@
   border: 2px solid;
   border-radius: 25px;
   padding: 1em;
+  margin: 10px;
   background-color: #fff;
   border-color: #eee #ddd #bbb;
   transition: 300ms ease-in-out;
@@ -54,6 +52,7 @@
   letter-spacing: 2.5px;
   font-weight: 500;
   color: #fff;
+  margin: 10px;
   background-color: #008481;
   border: none;
   border-radius: 45px;

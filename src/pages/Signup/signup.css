@@ -1,12 +1,9 @@
 /* Sign-up page */
 .sign-up {
   text-align: center;
-  margin: 0;
-  padding: 0;
+  margin: 100px;
+  padding: 100px;
   height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .sign-up form {
@@ -20,6 +17,7 @@
   border: 2px solid;
   border-radius: 25px;
   padding: 1em;
+  margin: 10px;
   background-color: #fff;
   border-color: #eee #ddd #bbb;
   transition: 300ms ease-in-out;
@@ -41,6 +39,7 @@
 .sign-up button {
   padding: 12px;
   font-size: 12px;
+  margin: 10px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
