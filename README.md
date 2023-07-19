@@ -2,7 +2,16 @@
 
 This repository contains the frontend code for our full-stack web application, which allows users to vote.
 
-https://imgur.com/a/f3InIVa
+<img width="557" alt="sign-in" src="https://github.com/1ElijahW/aiPoll-client./assets/93549594/5e9ff975-8785-415c-8365-4feaa8c01390">
+
+<img width="660" alt="sign-up" src="https://github.com/1ElijahW/aiPoll-client./assets/93549594/8d8ba1f8-cd06-4ac1-9ec8-ec63ad2b4184">
+
+<img width="1115" alt="home" src="https://github.com/1ElijahW/aiPoll-client./assets/93549594/19b74468-3f42-4aa1-b3c0-eec62287b340">
+
+<img width="1102" alt="pote-view" src="https://github.com/1ElijahW/aiPoll-client./assets/93549594/8531383c-0894-4dc7-8015-3d31862fda28">
+
+<img width="1107" alt="poll-vote" src="https://github.com/1ElijahW/aiPoll-client./assets/93549594/2719c318-9b83-40da-9760-19f91602cb4d">
+
 
 # Deployment
 
