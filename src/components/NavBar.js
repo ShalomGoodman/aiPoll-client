@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './navbar.css';
 import { ToastContainer, toast } from 'react-toastify';
+import logo from '../assets/logo_aipoll.png';
 
 const NavBar = ({ connectWallet, walletAddress }) => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const NavBar = ({ connectWallet, walletAddress }) => {
 
   return (
     <nav className="navbar">
+        <img src={logo} alt="ailogo" className="ai-logo" />
       <div className="navbar-buttons">
         {isLoggedIn && (
           <>
