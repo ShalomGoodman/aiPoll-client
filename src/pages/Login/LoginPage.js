@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./loginpage.css";
 import { useNavigate } from "react-router-dom";
@@ -56,6 +56,13 @@ function LoginPage() {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      navigate("/home");
+    }
+  }, [navigate]);
+
   
 
   return (
