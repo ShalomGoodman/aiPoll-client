@@ -267,8 +267,8 @@ function CreatePoll({ onPollCreated }) {
                 </Form.Group>
 
                 <Form.Group>
-                  <Form.Label>Token Price: </Form.Label>
-                  <span>{tokenPrice} tokens</span>
+                  <Form.Label>Token Price: $</Form.Label>
+                  <span>{tokenPrice} 'TRU'</span>
                 </Form.Group>
 
                 {formError && <p>All fields are required.</p>}
