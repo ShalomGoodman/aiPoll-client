@@ -19,8 +19,7 @@ function Comment({ comment, handleDelete }) {
             Number(localStorage.getItem("user_id")) && (
             <button
               onClick={() => handleDelete(comment.id)}
-              className="delete-btn"
-            >
+              className="delete-btn">
               <FaTrash />
             </button>
           )}

@@ -16,6 +16,10 @@ const PollPage = () => {
   const [highestVote, setHighestVote] = useState("");
 
   useEffect(() => {
+    console.log(pollData);
+  }, [pollData]);
+
+  useEffect(() => {
     const fetchPollData = async () => {
       try {
         const response = await base.get(`/api/polls/${id}/`);

@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Comment from "../components/Comment";
-import base from "../auth/baseURL";
-import { FaPaperPlane, FaSync } from "react-icons/fa";
+import React, { useEffect, useState } from 'react';
+import Comment from '../components/Comment';
+import base from '../auth/baseURL';
+import { FaPaperPlane,  FaSync } from 'react-icons/fa';
+import './Chatbox.css';
+
 
 function Chatbox({ chatbox_id }) {
   const [comments, setComments] = useState([]);
@@ -55,37 +57,41 @@ function Chatbox({ chatbox_id }) {
   return (
     <div className="chatbox">
       <div className="chatbox-header">
-        <button className="refresh-button" onClick={fetchChatbox}>
+        <button className="refresh-button"
+          onClick={fetchChatbox}>
           <FaSync />
         </button>
         <h3>Chatbox</h3>
-        <div className="submit-cotainer"></div>
+        <div className='submit-cotainer'>
+        </div>
       </div>
       <div className="chatbox-comments">
         {comments.map((comment) => (
-          <Comment
-            key={comment.id}
-            comment={comment}
-            handleDelete={handleDelete}
-          />
+          <Comment key={comment.id} comment={comment} handleDelete={handleDelete} />
         ))}
       </div>
       <form onSubmit={handleSubmit}>
-        <div>
-          <div className="submit-cotainer">
-            <textarea
-              className="textarea"
-              placeholder="Type here"
-              value={commentText}
-              onChange={handleCommentTextChange}
-              required
-            ></textarea>
-            <button className="submit-button">
-              <FaPaperPlane />
-            </button>
-          </div>
-        </div>
-      </form>
+  <div className='submit-container'>
+    <textarea
+      className="textarea"
+      placeholder="Type here"
+      value={commentText}
+      onChange={handleCommentTextChange}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+          event.preventDefault();
+          handleSubmit(event);
+        }
+      }}
+      rows={20}
+      cols={30}
+      required
+    ></textarea>
+    <button className="submit-button">
+      <FaPaperPlane />
+    </button>
+  </div>
+</form>
     </div>
   );
 }
