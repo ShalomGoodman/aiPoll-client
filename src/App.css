@@ -1,3 +1,7 @@
+* {
+  transition: all 0.4s ease;
+}
+
 .app {
     background-color: #008481;
     height: 100vh;

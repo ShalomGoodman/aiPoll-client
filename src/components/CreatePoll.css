@@ -21,3 +21,8 @@
   float: right;
   cursor: pointer;
 }
+
+
+.my-select {
+  margin-bottom: 10px;
+}

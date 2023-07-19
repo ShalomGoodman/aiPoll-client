@@ -9,6 +9,7 @@ import { tokenTransfer, erc20contract } from "../../interfaces/ERC20Interface";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 function CreatePoll({ onPollCreated }) {
   const [showModal, setShowModal] = useState(false);
@@ -31,6 +32,8 @@ function CreatePoll({ onPollCreated }) {
       // setTransfer(data);
     });
   }
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     addSmartContractListener();
@@ -142,12 +145,15 @@ function CreatePoll({ onPollCreated }) {
       };
 
       const response = await base.post("/api/polls/", poll); // modify this path if it's not the correct endpoint
-
-      if (response.status === 200) {
+        console.log(response);
+      if (response.status === 201) {
         // Check if poll was successfully created
         setSubmitSuccess(true);
         onPollCreated(); // Call the function passed from the parent component
         toast.success("Poll was successfully created!"); // Display success toast notification
+        console.log(response.data); // Log the response data
+        console.log("im here"); // Log the poll ID
+        navigate(`/poll/${response.data.id}`); // Navigate to the poll page
       } else {
         setSubmitError(true);
       }
@@ -216,6 +222,7 @@ function CreatePoll({ onPollCreated }) {
                 <Form.Group controlId="formDuration">
                   <Form.Label>Duration</Form.Label>
                   <Form.Control
+                    className="my-select"
                     as="select"
                     value={days}
                     onChange={handleDaysChange}
@@ -230,6 +237,7 @@ function CreatePoll({ onPollCreated }) {
                     <option value={7}>7 days</option>
                   </Form.Control>
                   <Form.Control
+                    className="my-select"
                     as="select"
                     value={hours}
                     onChange={handleHoursChange}
@@ -244,12 +252,11 @@ function CreatePoll({ onPollCreated }) {
                     <option value={7}>7 hours</option>
                   </Form.Control>
                   <Form.Control
+                    className="my-select"
                     as="select"
                     value={minutes}
                     onChange={handleMinutesChange}
                   >
-                    <option value={0}>0 minutes</option>
-                    <option value={1}>1 minute</option>
                     <option value={2}>2 minutes</option>
                     <option value={3}>3 minutes</option>
                     <option value={4}>4 minutes</option>
