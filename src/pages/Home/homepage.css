@@ -7,11 +7,12 @@
   background-size: cover;
 }
 
-.home-page  h1{
+.home-page h1 {
   padding: 20px;
   color: #14171a;
   font-family: Arial, sans-serif;
-  
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .polls-container {
@@ -73,11 +74,6 @@
 
 .poll-container .vote-btn:hover {
   background-color: #0f86d3;
-}
-
-.home-page h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
 }
 
 .poll-container .poll-info {
@@ -146,3 +142,70 @@
   transform: translateY(-1px);
 }
 
+/* Media Queries */
+@media (max-width: 768px) {
+  .poll-container {
+    padding: 15px;
+    display:block;
+  }
+
+  .poll-container h3 {
+    font-size: 16px;
+  }
+
+  .poll-container p {
+    font-size: 12px;
+  }
+
+  .poll-container .option label {
+    font-size: 12px;
+  }
+
+  .poll-container .vote-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .home-page h1 {
+    font-size: 20px;
+  }
+
+  .poll-container .poll-info img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .poll-container .poll-info .username {
+    font-weight: normal;
+    font-size: 12px;
+  }
+
+  .poll-container .poll-info .timestamp {
+    font-size: 10px;
+  }
+
+  .poll-container .poll-actions .action-btn {
+    font-size: 10px;
+
+  .create-poll-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 17px 25px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #23c483;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+  /* Additional Mobile Styles */
+  .home-page {
+    padding: 10px;
+  }
