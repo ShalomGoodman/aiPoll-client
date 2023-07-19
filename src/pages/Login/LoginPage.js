@@ -3,11 +3,10 @@ import axios from "axios";
 import "./loginpage.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import logo from '../../assets/GOLD.png';
+import logo from "../../assets/GOLD.png";
 import { ToastContainer, toast } from "react-toastify";
 
 function LoginPage() {
-
   const notifySuccess = () => {
     toast.success("Signed in Successfully!");
   };
@@ -39,7 +38,7 @@ function LoginPage() {
           password,
         }
       );
-  
+
       if (response.status === 200) {
         setUsername("");
         setPassword("");
@@ -63,11 +62,9 @@ function LoginPage() {
     }
   }, [navigate]);
 
-  
-
   return (
     <div className="sign-in">
-         <img src={logo} alt="logo" />
+      <img src={logo} alt="logo" />
       <form onSubmit={handleSubmit}>
         <label>
           <input

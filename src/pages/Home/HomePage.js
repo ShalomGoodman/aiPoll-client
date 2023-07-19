@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Poll from '../../components/Poll';
-import '../Home/homepage.css';
-import CreatePoll from '../../components/modal/CreatePoll';
-import { ToastContainer, toast } from 'react-toastify';
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Poll from "../../components/Poll";
+import "../Home/homepage.css";
+import CreatePoll from "../../components/modal/CreatePoll";
+import { ToastContainer, toast } from "react-toastify";
 
 function HomePage() {
   const [polls, setPolls] = useState([]);
-  const [pollCreated, setPollCreated] = useState(false); // Add this state
+  const [pollCreated, setPollCreated] = useState(false);
 
   const fetchPolls = async () => {
     try {
-      const token = localStorage.getItem('token'); // Fetch the JWT token from local storage
+      const token = localStorage.getItem("token"); // Fetch the JWT token from local storage
       const response = await axios.get(
-        'https://ai-poll-b30b8a89907a.herokuapp.com/api/polls/',
+        "https://ai-poll-b30b8a89907a.herokuapp.com/api/polls/",
         {
           headers: {
             Authorization: `token ${token}`, // Set the token as the Authorization header
@@ -34,7 +33,7 @@ function HomePage() {
 
   // Call this function whenever a poll is created
   const handlePollCreated = () => {
-    setPollCreated(prevState => !prevState);
+    setPollCreated((prevState) => !prevState);
   };
 
   return (
@@ -46,7 +45,7 @@ function HomePage() {
           </div>
         ))}
       </div>
-      <CreatePoll onPollCreated={handlePollCreated} /> {/* Render the CreatePoll component */}
+      <CreatePoll onPollCreated={handlePollCreated} />
       <ToastContainer />
     </div>
   );

@@ -21,7 +21,6 @@
 
 
 .poll-container {
-  /* background-color: #f5f8fa; */
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -108,10 +107,6 @@
   font-size: 12px;
   cursor: pointer;
 }
-
-/* .poll-container .poll-actions .action-btn:hover {
-  text-decoration: underline;
-} */
 
 .create-poll-button {
   background-color: #008481;

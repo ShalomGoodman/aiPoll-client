@@ -1,7 +1,7 @@
-import React from 'react';
-import './Comment.css'; // Import the CSS file
-import { getPrevTimeDifference } from '../util/GetTimeDiff';
-import { FaTrash } from 'react-icons/fa';
+import React from "react";
+import "./Comment.css";
+import { getPrevTimeDifference } from "../util/GetTimeDiff";
+import { FaTrash } from "react-icons/fa";
 
 function Comment({ comment, handleDelete }) {
   const prevTimeDifference = getPrevTimeDifference(comment.created_at);
@@ -15,8 +15,12 @@ function Comment({ comment, handleDelete }) {
         <div className="comment-content">
           <p>{comment.text}</p>
           <span>{prevTimeDifference}</span>
-          {Number(comment.creator) === Number(localStorage.getItem('user_id')) && (
-            <button onClick={() => handleDelete(comment.id)} className="delete-btn">
+          {Number(comment.creator) ===
+            Number(localStorage.getItem("user_id")) && (
+            <button
+              onClick={() => handleDelete(comment.id)}
+              className="delete-btn"
+            >
               <FaTrash />
             </button>
           )}

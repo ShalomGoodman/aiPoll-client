@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { parseUnits, formatUnits } from "ethers";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import base from "../../auth/baseURL";
 import { tokenTransfer, erc20contract } from "../../interfaces/ERC20Interface";
-import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -28,7 +26,6 @@ function CreatePoll({ onPollCreated }) {
   function addSmartContractListener() {
     erc20contract.on("Transfer", (message, _to, _value) => {
       console.log(message, _to, _value);
-      // setTransfer(data);
     });
   }
 

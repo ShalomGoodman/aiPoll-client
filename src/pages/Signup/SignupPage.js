@@ -15,7 +15,7 @@ export default function SignupPage() {
     event.preventDefault();
     try {
       await signup(username, password, walletAddress);
-  
+
       setUsername("");
       setPassword("");
       setWalletAddress("123456789");
@@ -31,13 +31,11 @@ export default function SignupPage() {
       }
     }
   };
-  
 
   return (
     <div className="sign-up">
       <form onSubmit={handleSubmit}>
         <label>
-      
           <input
             type="text"
             placeholder="create username"
@@ -47,7 +45,6 @@ export default function SignupPage() {
         </label>
         <br />
         <label>
-      
           <input
             type="password"
             placeholder="create password"
@@ -56,16 +53,6 @@ export default function SignupPage() {
           />
         </label>
         <br />
-        {/* <label>
-
-          <input
-            type="text"
-            placeholder=" MetaMask wallet address"
-            value={walletAddress}
-            onChange={(event) => setWalletAddress(event.target.value)}
-          />
-        </label>
-        <br /> */}
         <button type="submit">Sign Up</button>
       </form>
       <span className="goTo">
@@ -75,7 +62,6 @@ export default function SignupPage() {
         </Link>{" "}
         to sign in instead.
       </span>
-
     </div>
   );
 }
