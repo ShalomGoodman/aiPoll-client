@@ -186,6 +186,8 @@
 
   .poll-container .poll-actions .action-btn {
     font-size: 10px;
+  }
+}
 
   .create-poll-button {
     position: fixed;
