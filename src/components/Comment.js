@@ -14,7 +14,7 @@ function Comment({ comment, handleDelete }) {
         </div>
         <div className="comment-content">
           <p>{comment.text}</p>
-          <span>{prevTimeDifference}</span>
+          <span className='prevTimeDifference'>{prevTimeDifference}</span>
           {Number(comment.creator) === Number(localStorage.getItem('user_id')) && (
             <button onClick={() => handleDelete(comment.id)} className="delete-btn">
               <FaTrash />

@@ -35,6 +35,7 @@ function HomePage() {
   // Call this function whenever a poll is created
   const handlePollCreated = () => {
     setPollCreated(prevState => !prevState);
+    
   };
 
   return (
