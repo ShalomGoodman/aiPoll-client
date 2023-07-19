@@ -14,6 +14,27 @@
   margin-left: auto;
 }
 
+
+.connect-wallet-button{
+
+  transform: translate(-462px, 12px);
+}
+.logout-button{
+  transform: translate(-8px, -31px);
+
+}
+.home-button{
+  transform: translate(-900px, -29px);
+}
+
+
+
+
+
+
+
+
+
 .connect-wallet-button,
 .logout-button,
 .home-button {
