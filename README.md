@@ -2,23 +2,13 @@
 
 This repository contains the frontend code for our full-stack web application, which allows users to vote.
 
-
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/lzY9yFR" data-context="false" ><a href="//imgur.com/a/lzY9yFR"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/QiCX4I0" data-context="false" ><a href="//imgur.com/a/QiCX4I0"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/Wzs7zhN" data-context="false" ><a href="//imgur.com/a/Wzs7zhN"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/rzkR8Av" data-context="false" ><a href="//imgur.com/a/rzkR8Av"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/0nMgO8X" data-context="false" ><a href="//imgur.com/a/0nMgO8X"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
+https://imgur.com/a/f3InIVa
 
 # Deployment
 
 Our app is deployed on Vercel. You can access the live deployment at https://ai-poll-client-awsordsz0-elijahw.vercel.app/
 
-## Key Features
+## Key Features 
 
 - **Authentication**: Secure user authentication for personalized experiences.
 - **Responsive Design**: Responsive layout for optimal viewing across devices.
