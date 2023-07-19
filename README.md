@@ -2,6 +2,18 @@
 
 This repository contains the frontend code for our full-stack web application, which allows users to vote.
 
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/lzY9yFR" data-context="false" ><a href="//imgur.com/a/lzY9yFR"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/QiCX4I0" data-context="false" ><a href="//imgur.com/a/QiCX4I0"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/Wzs7zhN" data-context="false" ><a href="//imgur.com/a/Wzs7zhN"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/rzkR8Av" data-context="false" ><a href="//imgur.com/a/rzkR8Av"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/0nMgO8X" data-context="false" ><a href="//imgur.com/a/0nMgO8X"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+
 # Deployment
 
 Our app is deployed on Vercel. You can access the live deployment at https://ai-poll-client-awsordsz0-elijahw.vercel.app/
@@ -100,30 +112,36 @@ To run the project locally, follow these steps:
 
 This project has been developed by the following contributors:
 
- 1ElijahW (Elijah)- Technical Lead / Front End Developer
 
-- Created the public frontend and backend repositories.
-- Deployed the frontend to Netlify and Heroku.
+ 1ElijahW (Elijah) - Front End Developer / UX-UI Designer
+
+- Deployed the frontend to Vercel.
+- Developed the public frontend repository.
+- Made significant contributions to frontend development and CSS styling.
+- Collaborated on frontend architecture and best practices, leveraging UX/UI background.
 - Conducted code reviews and managed git pulls, merges, and conflicts.
-- Collaborated on frontend architecture and best practices.
 
- granth2023 (Grant)- Project Manager / Front End Developer
+ granth2023 (Grant )- Front End Developer / Technical Led
 
 - Managed group scheduling and delegated responsibilities.
 - Conducted and scheduled standup meetings.
-- Made significant contributions to frontend authentication, and Web3. 
+- Made significant contributions to frontend authentication, and Web3.
+- Collaborated on frontend architecture and best practices.
+- Conducted code reviews and managed git pulls, merges, and conflicts. 
 
- ShalomGoodman (Shalom)- Backend Developer / Database Specialist
+ ShalomGoodman (Shalom) - Backend Developer / Database Specialist
 
 - Implemented backend routes and Django integration.
 - Collaborated on backend architecture and best practices.
 - Collaborated on frontend architecture and best practices.
+- Conducted code reviews and managed git pulls, merges, and conflicts.
 
-alibay97 (Alison) - Lead Designer / Frontend Developer
+alibay97 (Alison) - Frontend Developer / Graphic Designer
 
 - Led frontend design efforts.
 - Made significant contributions to frontend development and CSS styling.
-- Collaborated on frontend architecture and best practices.
+- Collaborated on frontend architecture and best practices leveraging Graphic Design background.
+- Conducted code reviews and managed git pulls, merges, and conflicts.
 
 ## Contributing
 
