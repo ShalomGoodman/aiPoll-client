@@ -1,3 +1,17 @@
+.poll-page {
+  background-size: cover;
+  position: relative;
+  padding: 20px;
+  max-width: 100%;
+  max-height: 100%;
+  background-image: url('../../assets/blur2.png');
+  background-size: cover;
+  width: 2076px;
+  height: 2043px;
+  
+}
+
+
 .poll-container {
   width: 650px;
   margin: 10px auto;
@@ -8,16 +22,9 @@
   border-color: #eee #ddd #bbb;
   margin-bottom: 20px;
   align-items: center;
-  display: flex;
+  background-size: cover;
 }
 
-@media (max-width: 768px) {
-  .poll-container {
-    width: 100%;
-    flex-direction: column;
-    padding: 10px;
-  }
-}
 
 .poll-title {
   font-size: 20px;
@@ -41,11 +48,12 @@ color: #fff;
 }
 
 .poll-choice {
-  display: flex;
   align-items: center;
   margin: 10px 0;
   padding: 10px;
+  margin: 3px 3px;
   border-radius: 10px;
+  background-color: #65778638;
 }
 
 .poll-choice input[type="radio"] {
@@ -66,6 +74,7 @@ color: #fff;
   color: #182D45;
 }
 
+
 .vote-container {
   max-width: 650px;
   padding: 20px;
@@ -76,13 +85,24 @@ color: #fff;
   overflow: hidden;
   position: relative;
   text-align: left;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  background-color: #fff;
+  box-shadow: 5px 40px 45px -10px rgb(0 0 0 / 41%), 5px 40px 45px 10px rgb(0 0 0 / 41%);
+  background-image: url('../../assets/blur-opacity2.png');
+  background-size: cover;
+  }
+
+.vote-container p {
+  font-size: 14px;
+  color: #657786;
+  margin-bottom: 10px;
+  padding: 10px;
+  /* transform: translate(-28px, 1px); */
 }
+
+
 
 .poll-result-label-a,
 .poll-result-label-b {
-  background-color: #354c3714;
+  background-color: #354c3717;
   margin: 10px 0;
   padding: 10px;
   white-space: nowrap;
@@ -97,6 +117,6 @@ color: #fff;
 }
 
 .highest-vote {
-  background-color:#11611778;
+  background-color:#11613385;
   color: #ffffffbf;
 }

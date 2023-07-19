@@ -5,6 +5,7 @@ import '../Home/homepage.css';
 import CreatePoll from '../../components/modal/CreatePoll';
 import { ToastContainer, toast } from 'react-toastify';
 
+
 function HomePage() {
   const [polls, setPolls] = useState([]);
   const [pollCreated, setPollCreated] = useState(false); // Add this state

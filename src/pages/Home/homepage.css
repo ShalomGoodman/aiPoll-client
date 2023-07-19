@@ -3,6 +3,8 @@
   padding: 20px;
   color: #14171a;
   font-family: Arial, sans-serif;
+  background-image: url('../../assets/blur2.png');
+  background-size: cover;
 }
 
 .home-page h1 {
@@ -14,12 +16,12 @@
 }
 
 .polls-container {
-  display: flex;
   flex-direction: column;
 }
 
+
 .poll-container {
-  background-color: #f5f8fa;
+  /* background-color: #f5f8fa; */
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -33,17 +35,21 @@
 
 .poll-container p {
   font-size: 14px;
-  color: #657786;
+  color: #3a4956;
   margin-bottom: 10px;
 }
 
+.poll-votes {
+  transform: translate(379px, 18px);
+}
+
+
+
 .poll-container .options {
-  display: flex;
   flex-direction: column;
 }
 
 .poll-container .option {
-  display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -71,7 +77,6 @@
 }
 
 .poll-container .poll-info {
-  display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -93,7 +98,6 @@
 }
 
 .poll-container .poll-actions {
-  display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 10px;
@@ -105,9 +109,9 @@
   cursor: pointer;
 }
 
-.poll-container .poll-actions .action-btn:hover {
+/* .poll-container .poll-actions .action-btn:hover {
   text-decoration: underline;
-}
+} */
 
 .create-poll-button {
   position: fixed;
@@ -205,4 +209,3 @@
   .home-page {
     padding: 10px;
   }
-
