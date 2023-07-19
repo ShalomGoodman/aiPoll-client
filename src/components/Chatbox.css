@@ -19,20 +19,19 @@
 }
 
 .chatbox-header {
-  display: flex;
+
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
 
 .comment {
-  display: flex;
+
   align-items: center;
   margin-bottom: 10px;
 }
 
 .user-profile {
-  display: flex;
   align-items: center;
   margin-right: 10px;
 }
@@ -45,7 +44,7 @@
 }
 
 .comment-content {
-  display: flex;
+  
   flex-direction: column;
 }
 
@@ -59,7 +58,6 @@
 }
 
 form {
-  display: flex;
   flex-direction: column;
 }
 

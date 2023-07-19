@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { getFutureTimeDifference, getPrevTimeDifference } from './GetTimeDiff';
-// import './Poll.css'; // Import the CSS file
+import { getFutureTimeDifference, getPrevTimeDifference } from '../util/GetTimeDiff';// import './Poll.css'; // Import the CSS file
 
 const Poll = ({ poll }) => {
+
 
   const futureTimeDifference = getFutureTimeDifference(poll.deadline);
   const prevTimeDifference = getPrevTimeDifference(poll.created);

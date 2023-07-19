@@ -1,13 +1,9 @@
-/* Sign-in section */
+
 .sign-in {
   text-align: center;
-  margin: 0;
-  padding: 0;
+  margin: 100px;
+  padding: 100px;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .sign-in img {
@@ -18,14 +14,12 @@
 }
 
 .sign-in form {
-  display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
 }
 
 .sign-in label {
-  display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
@@ -34,9 +28,11 @@
   border: 2px solid;
   border-radius: 25px;
   padding: 1em;
+  margin: 10px;
   background-color: #fff;
   border-color: #eee #ddd #bbb;
   transition: 300ms ease-in-out;
+  box-shadow: 1px 10px 25px -5px rgb(109 242 96 / 23%), 1px 10px 25px 5px rgb(76 223 205 / 15%);
 }
 
 .sign-in input::placeholder {
@@ -56,6 +52,7 @@
   letter-spacing: 2.5px;
   font-weight: 500;
   color: #fff;
+  margin: 10px;
   background-color: #008481;
   border: none;
   border-radius: 45px;
@@ -67,12 +64,6 @@
 
 .sign-in button:hover {
   background-color: #017775;;
-}
-
-
-.sign-in .link {
-  color: blue;
-  text-decoration: none;
 }
 
 .sign-in .redirect {
@@ -88,7 +79,7 @@
 }
 
 .sign-in .link {
-  color: #0b8d1f;
+  color: #fff007;
   font-weight: bold;
 }
 
@@ -96,19 +87,3 @@
   text-decoration: underline;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-  /* .sign-in{
-    height: 100vh;
-  } */
-  .sign-in img {
-    margin-bottom: 30px;
-
-  }
-
-  .sign-in button {
-    width: auto;
-    height: 40px;
-    font-size: 14px;
-  }
-}

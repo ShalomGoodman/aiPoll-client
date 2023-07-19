@@ -1,8 +1,9 @@
 .comment-container {
   margin: 10px;
   padding: 10px;
-  background-color: #38546c12;
+  background-color: #38546c8a;
   border-radius: 10px;
+  color:#fff;
 }
 
 .comment-container:hover {
@@ -13,6 +14,7 @@
 
 .comment-container p {
   margin-bottom: 5px;
+  color: #ffffffc7;
 }
 
 .chatbox-refresh button {
@@ -57,7 +59,9 @@
 }
 
 .refresh-button:hover {
-  background-color: #f2cf525e;
+  font-size: 16px;
+  color: #000;
+  transform: scale(1.1);
 }
 .textarea {
   width: 100%;
@@ -78,25 +82,20 @@
 }
 
 
+ .delete-btn {
+  background-color: #0000;
+  color: #00000057;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: -4px;
+  padding: 6px;
+  transform: translate(9px, 1px);
+}
 
-/* Media Queries */
-
-@media screen and (max-width: 600px) {
-  /* Adjust styles for screens with a maximum width of 600px */
-  .comment-container {
-    margin: 5px;
-    padding: 5px;
-  }
-  
-  .submit-button {
-    font-size: 12px;
-  }
-  
-  .refresh-button {
-    font-size: 12px;
-  }
-  
-  .submit-type {
-    font-size: 14px;
-  }
+.delete-btn:hover {
+  font-size: 16px;
+  color: #000;
+  transform: scale(1.1);
 }

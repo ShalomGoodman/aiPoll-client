@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './pollpage.css'; // Import the CSS file
 import { useParams } from 'react-router-dom';
 import base from '../../auth/baseURL';
-import { getFutureTimeDifference, getPrevTimeDifference } from '../../components/GetTimeDiff';
+import { getFutureTimeDifference, getPrevTimeDifference } from '../../util/GetTimeDiff';
 import Chatbox from '../../components/Chatbox';
 import { ToastContainer, toast } from "react-toastify";
 
@@ -60,7 +60,8 @@ const PollPage = () => {
     }
   };
 
-  return (
+  return ( 
+  <div className="poll-page">
     <div className='vote-container'>
       {pollData && (
         <>
@@ -94,6 +95,7 @@ const PollPage = () => {
           <Chatbox chatbox_id={pollData.chatbox} />
         </>
       )}
+    </div>
     </div>
   );
 };

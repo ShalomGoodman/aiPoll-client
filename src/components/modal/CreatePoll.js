@@ -260,7 +260,7 @@ function CreatePoll({ onPollCreated }) {
                 </Form.Group>
 
                 <Form.Group>
-                  <Form.Label>Token Price:</Form.Label>
+                  <Form.Label>Token Price: </Form.Label>
                   <span>{tokenPrice} tokens</span>
                 </Form.Group>
 

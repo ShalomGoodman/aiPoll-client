@@ -1,6 +1,5 @@
 .navbar {
-  background-color: #008481;
-  display: flex;
+  background-color: #fff;
   justify-content: flex-end;
   align-items: center;
   padding: 10px;
@@ -11,10 +10,31 @@
 }
 
 .navbar-buttons {
-  display: flex;
   align-items: center;
   margin-left: auto;
 }
+
+
+.connect-wallet-button{
+
+  transform: translate(-200px, 12px);
+}
+
+.logout-button{
+  transform: translate(17px, -31px);
+
+}
+.home-button{
+  transform: translate(-360px, -29px);
+}
+
+
+
+
+
+
+
+
 
 .connect-wallet-button,
 .logout-button,
@@ -24,8 +44,9 @@
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
-  color: #000;
-  background-color: #fff;
+  font-weight: 500;
+  color: #fff;
+  background-color: #008481;
   border: none;
   border-radius: 45px;
   transition: all 0.3s ease 0s;
@@ -38,15 +59,11 @@
 .connect-wallet-button:hover,
 .logout-button:hover,
 .home-button:hover {
-  background-color: #ebeaea;
-  transform: translateY(-7px);
+  background-color: #026968;
+  color:#fff
 }
 
-.connect-wallet-button:active,
-.logout-button:active,
-.home-button:active {
-  transform: translateY(-1px);
-}
+
 @media (max-width: 768px) {
   .navbar{
     max-width: 768px;
