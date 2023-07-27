@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { parseUnits, formatUnits } from "ethers";
+// import { parseUnits, formatUnits } from "ethers";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import base from "../../auth/baseURL";
 import { tokenTransfer, erc20contract } from "../../interfaces/ERC20Interface";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
@@ -19,9 +19,9 @@ function CreatePoll({ onPollCreated }) {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
-  const [transfer, setTransfer] = useState({});
+  // const [transfer, setTransfer] = useState({});
   const [tokenPrice, setTokenPrice] = useState(0);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  // const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formError, setFormError] = useState(false); // State to track form error
@@ -148,7 +148,7 @@ function CreatePoll({ onPollCreated }) {
         console.log(response);
       if (response.status === 201) {
         // Check if poll was successfully created
-        setSubmitSuccess(true);
+        // setSubmitSuccess(true);
         onPollCreated(); // Call the function passed from the parent component
         toast.success("Poll was successfully created!"); // Display success toast notification
         console.log(response.data); // Log the response data

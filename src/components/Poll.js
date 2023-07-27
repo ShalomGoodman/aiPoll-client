@@ -1,20 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getFutureTimeDifference, getPrevTimeDifference } from '../util/GetTimeDiff';// import './Poll.css'; // Import the CSS file
+import { getFutureTimeDifference, getPrevTimeDifference } from '../util/GetTimeDiff';
 
 const Poll = ({ poll }) => {
-
-
   const futureTimeDifference = getFutureTimeDifference(poll.deadline);
   const prevTimeDifference = getPrevTimeDifference(poll.created);
 
   const navigate = useNavigate();
-
-  const handleVoteButton = () => {
-    // Navigate to the poll page /polls/:id
-    navigate(`/poll/${poll.id}`);
-  };
+  const handleVoteButton = () => { navigate(`/poll/${poll.id}`) };
 
   return (
     <div>

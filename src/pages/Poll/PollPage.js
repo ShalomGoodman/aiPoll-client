@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import base from '../../auth/baseURL';
 import { getFutureTimeDifference, getPrevTimeDifference } from '../../util/GetTimeDiff';
 import Chatbox from '../../components/Chatbox';
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const PollPage = () => {
   const { id } = useParams();

@@ -4,7 +4,7 @@ import "./loginpage.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from '../../assets/GOLD.png';
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 function LoginPage() {
 
