@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './navbar.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import logo from '../assets/logo_aipoll.png';
 
 const NavBar = ({ connectWallet, walletAddress }) => {

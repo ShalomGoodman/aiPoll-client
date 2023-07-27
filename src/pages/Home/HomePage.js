@@ -3,7 +3,7 @@ import axios from 'axios';
 import Poll from '../../components/Poll';
 import '../Home/homepage.css';
 import CreatePoll from '../../components/modal/CreatePoll';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 
 function HomePage() {

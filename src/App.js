@@ -7,25 +7,25 @@ import SignupPage from './pages/Signup/SignupPage';
 import PollPage from './pages/Poll/PollPage';
 import { AuthProvider } from './auth/AuthContextComponent';
 import { ConnectWallet, getCurrentWalletConnected } from './util/walletConnection';
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import '../node_modules/react-toastify/dist/ReactToastify.css'
 import { ScrollToTop } from './util/ScrollToTop';
 
 function App() {
   const [walletAddress, setWallet] = useState("");
-  const [walletStatus, setWalletStatus] = useState("");
+  // const [walletStatus, setWalletStatus] = useState("");
   const isLoggedIn = localStorage.getItem('isLoggedIn')
 
   const connectWallet = async () => {
     const walletResponse = await ConnectWallet();
-    setWalletStatus(walletResponse.status);
+    // setWalletStatus(walletResponse.status);
     setWallet(walletResponse.address);
   };
 
   useEffect(() => {
     const checkConnectedWallet = async () => {
       const walletResponse = await getCurrentWalletConnected();
-      setWalletStatus(walletResponse.status);
+      // setWalletStatus(walletResponse.status);
       setWallet(walletResponse.address);
     };
     checkConnectedWallet();
